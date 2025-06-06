@@ -1,0 +1,22 @@
+a{
+    text-decoration: none;
+}
+.link{
+    color: cyan !important;
+    text-decoration: none;
+    transition: color 0.10s ease;
+
+}
+.link:hover{
+    color:green !important;
+    text-decoration: underline;
+    /* transition: color 0.3s ease; */
+
+}
+.bg-image{
+    background-image: url("../images/school.png");
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
