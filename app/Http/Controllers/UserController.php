@@ -10,17 +10,28 @@ class UserController extends Controller
    {
        return view('welcome');
    }
-   public function login()
+   public function Login()
    {
        return view('login');
    }
    public function register()
    {
-       return view('signup');
+       return view('studentsignup');
    }
+   public function member(){
+    return view('members');
+   }
+   public function student(){
+       return view('studentlogin');    
+   }
+//    For admin dashboard
+   public function admin(){
+    return view('admin/welcome');
+    }
+
    public function dashboard()
    {
-       return view('dashboard');
+       return view('admin/admindashboard');
    }
    public function profile()
    {

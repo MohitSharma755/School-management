@@ -16,14 +16,14 @@ return new class extends Migration
             $table->string('name'); // Column for the student's name
             $table->string('email')->unique(); // Column for the student's email, must be unique  
             $table->string('password'); // Column for the student's password
-            $table->string('address')->nullable(); // Column for the student's address, nullable
+            $table->string('address')->unique(); // Column for the student's address, nullable
             $table->string('class'); // Column for the course the student is registering for
-            $table->string('phoneNumber')->nullable(); // Column for the student's phone number, nullable
-            $table->string('emergencyContact')->nullable(); // Column for the emergency contact, nullable
-            $table->string('remember_token')->nullable(); // Column for the remember token, nullable
+            $table->string('phoneNumber')->unique(); // Column for the student's phone number, unique
+            $table->string('emergencyContact')->unique(); // Column for the emergency contact, unique
+            $table->string('remember_token')->nullable(); // Column for the remember token, unique
             $table->string('userId')->unique(); // Assuming 'userId' is a unique identifier
             $table->string('userType')->default('student'); // Column for user type, defaulting to 'student'
-            $table->string('profilePicture')->nullable(); // Column for the student's profile picture, nullable
+            $table->string('profilePicture')->unique(); // Column for the student's profile picture, nullable
             $table->date('registrationDate'); // Column for the registration date
            
             $table->timestamps();

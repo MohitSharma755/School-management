@@ -27,16 +27,21 @@
 
 <body class="">
     <header class="">
-        <div class="d-flex p-1">
-            <div class="d-flex justify-content-center text-success  w-100 ">
-                <h1>Welcome In our School Management System</h1>
+        <div class="row p-1">
+            <div class="col-12 col-md-8  text-success  ">
+                <h1 class="col-md-8">Welcome In our School Management System</h1>
             </div>
-            <div class="d-flex justify-content-center ">
-                <a href="{{ route('login') }}" target="_blank" class="text-primary link">Login</a>
+            <div class="col-12 col-md-4 dropdown ">
+                <div class=" col-4 text-primary dropbtn link">Login</div>
+                <div class="dropdown-content">
+                    <a  href="{{ route('login') }}" target="_blank" >Teacher Login</a>
+                    <a href="{{ route('member') }}">Faculty</a>
+                    <a href="{{ route('student') }}">Student</a>
+                  </div>
             </div>
-            <div>
+            {{-- <div>
                 <a href="{{ route('register') }}" target="_blank" class="text-primary link">SignUp</a>
-            </div>
+            </div> --}}
         </div>
      {{-- <div class=""> this sss</div> --}}
         <div class="d-flex justify-content-center">

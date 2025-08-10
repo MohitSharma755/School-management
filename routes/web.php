@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Register;
 // Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 // Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 // Route::get('/settings', [UserController::class, 'settings'])->name('settings');
@@ -12,12 +13,36 @@ use App\Http\Controllers\UserController;
 // Route::get('/terms-of-service', [UserController::class, 'termsOfService'])->name('terms-of-service');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/register', [UserController::class, 'register'])->name('register');
+Route::get('/member',[UserController::class,'member'])->name('member');
+Route::get('/Student',[UserController::class,'student'])->name('student');
 Route::get('/', function () {
     return view('welcome');
 });
+// Admins Routes
+Route::get('/AdminPanel',[UserController::class,'dashboard'])->name('dashboard');
+Route::get('/admin',[UserController::class,'admin'])->name('admin');
 // Route::get('login', function () {
 //     return view ('login');
 // });
 // Route::get('register', function () {
 //     return view('signup');
 // });
+
+// Route for forms
+// Route::post('Login',[Register::class, 'login'])->name('login'); 
+Route::post('register',[Register::class, 'register'])->name('register');
+
+
+
+
+
+
+
+// cache clear
+Route::get('/clear', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    return "All caches cleared!";
+});
