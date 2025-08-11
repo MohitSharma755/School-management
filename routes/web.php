@@ -13,14 +13,21 @@ use App\Http\Controllers\Register;
 // Route::get('/terms-of-service', [UserController::class, 'termsOfService'])->name('terms-of-service');
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::get('/member',[UserController::class,'member'])->name('member');
-Route::get('/Student',[UserController::class,'student'])->name('student');
+
+// Students section
+Route::get('/Student', [UserController::class, 'student'])->name('student');
+Route::get('/studentdashboard',[UserController::class,'studentdashboard'])->name('studentdashboard');
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Memebers Routes
+Route::get('/member', [UserController::class, 'member'])->name('member');
+Route::get('/Staff',[UserController::class,'memberlogin'])->name('staff');
+
 // Admins Routes
-Route::get('/AdminPanel',[UserController::class,'dashboard'])->name('dashboard');
-Route::get('/admin',[UserController::class,'admin'])->name('admin');
+Route::get('/AdminPanel', [UserController::class, 'dashboard'])->name('dashboard');
+Route::get('/admin', [UserController::class, 'admin'])->name('admin');
 // Route::get('login', function () {
 //     return view ('login');
 // });
@@ -30,7 +37,7 @@ Route::get('/admin',[UserController::class,'admin'])->name('admin');
 
 // Route for forms
 // Route::post('Login',[Register::class, 'login'])->name('login'); 
-Route::post('register',[Register::class, 'register'])->name('register');
+Route::post('register', [Register::class, 'register'])->name('register');
 
 
 

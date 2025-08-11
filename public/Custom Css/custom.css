@@ -45,7 +45,7 @@ a:hover {
 
 .bg-official {
     background: linear-gradient(135deg, #119ce1 10%, #764ba2 100%);
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 
 .form-container {
@@ -135,3 +135,40 @@ a:hover {
     }
 
 }
+ .sidebar {
+            height: calc(100vh - 56px); /* Adjusting for a fixed navbar height */
+            background-color: #fff;
+            padding: 1rem;
+            position: fixed;
+            top: 56px;
+            left: 0;
+            width: 250px;
+            overflow-y: auto;
+            transition: transform 0.3s ease-in-out;
+            border-right: 1px solid #dee2e6;
+            z-index: 1000;
+        }
+
+        /* Default state on mobile: hidden */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* State when the button is clicked on mobile: visible */
+        .sidebar.show-sidebar {
+            transform: translateX(0);
+        }
+        
+        .main-content {
+            margin-left: 250px;
+            padding-top: 56px;
+        }
+
+        /* Adjust main content for mobile, where the sidebar is an overlay */
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+            }
+        }
