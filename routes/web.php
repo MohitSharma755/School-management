@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CurdController;
 use App\Http\Controllers\Register;
 // Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
 // Route::get('/profile', [UserController::class, 'profile'])->name('profile');
@@ -37,7 +38,9 @@ Route::get('/admin', [UserController::class, 'admin'])->name('admin');
 
 // Route for forms
 // Route::post('Login',[Register::class, 'login'])->name('login'); 
-Route::post('register', [Register::class, 'register'])->name('register');
+
+Route::post('studentsignup', [CurdController::class, 'studentsignup'])->name('studentsignup');
+Route::post('studentlogin', [CurdController::class, 'studentlogin'])->name('studentlogin');
 
 
 

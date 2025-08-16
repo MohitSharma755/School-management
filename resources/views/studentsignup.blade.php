@@ -10,12 +10,24 @@
 <link rel="stylesheet" href="{{ asset('Bootstrap Css/css/bootstrap.css') }}">
 <!-- Custom Css -->
 <link rel="stylesheet" href="{{ asset('Custom Css/custom.css') }}">
-   
+   <link rel="stylesheet" href="{{ asset('Bootstrap Css/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('Custom Css/custom.css') }}">
+    <script src="{{ asset('Js/custom.js') }}"></script>
+    <script src="{{ asset('Bootstrap Css/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('Js/jquery.js') }}"></script>
+    <!-- 3. Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
+
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+
 </head>
 
 <body class="bg-light">
     <div class="bg-official p-3 p-md-5 d-flex justify-content-center align-items-center min-vh-100">
-        <form action="{{ url('') }}" method="post" class="form-container bg-white shadow border rounded-3 p-3 p-md-4 w-100">
+        <form action="{{ url('studentsignup') }}" enctype="multipart/form-data" method="post" class="form-container bg-white shadow border rounded-3 p-3 p-md-4 w-100">
             @csrf
             <h1 class="text-success text-center mb-4">Student`s Registration</h1>
             
@@ -91,7 +103,7 @@
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Register"></input>
                 <div class="mt-3">
                     <span class="d-block d-sm-inline">If you have an account, please </span>
                     <a href="#" class="text-decoration-none">Login</a>

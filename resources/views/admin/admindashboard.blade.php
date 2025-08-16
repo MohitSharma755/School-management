@@ -114,17 +114,9 @@
                     <li class="list-group-item">Library Record</li>
                 </div>
 
-                {{-- <button class="button" data-toggle="collapse" data-target="#setting">
-                      <li class="list-group-item">
-                    
-                </li>
-                </button>
-               <div id="setting">  
-                 <li class="list-group-item">Logout</li>
-                    
-                </div> --}}
+               
                 <button type="" class="button" data-toggle="collapse" data-target="#st">
-                    {{-- <li class="list-group-item"> --}}
+                 
                     <li class="list-group-item">
                         <svg height="30" width="30" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                         <g fill="none" strokeLinejoin="round" strokeWidth="4">
@@ -156,10 +148,10 @@
             <div class="bg-white p-4 p-md-5 rounded-3 shadow-sm mb-4">
                 <h3 class="fw-bold text-dark">Manage Students</h3>
                 <div class="d-flex flex-wrap gap-2 mt-4">
-                    <button class="btn btn-primary shadow-sm rounded-pill">Add Student</button>
-                    <button class="btn btn-secondary shadow-sm rounded-pill">View All Students</button>
-                    <button class="btn btn-primary shadow-sm rounded-pill">Add Faculty</button>
-                    <button class="btn btn-secondary shadow-sm rounded-pill">View All Faculties</button>
+                    <a href="{{route('register')}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary shadow-sm rounded-pill">Add Student</a>
+                    <a href="#" class="btn btn-secondary shadow-sm rounded-pill">View All Students</a>
+                    <a href="#" class="btn btn-primary shadow-sm rounded-pill">Add Faculty</a>
+                    <a href="#" class="btn btn-secondary shadow-sm rounded-pill">View All Faculties</a>
                 </div>
             </div>
 

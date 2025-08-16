@@ -70,5 +70,15 @@ public function studentdashboard(){
    public function termsOfService()
    {
        return view('terms-of-service');
-   }                
+
+   }   
+   
+//    Forms Routes
+    public function studentdata(Request $request)
+    {
+         // Handle the student registration logic here
+         // For example, you can validate and save the data to the database
+         // return redirect()->route('studentdashboard');
+         return "Student data submitted successfully!";
+    }
 }
