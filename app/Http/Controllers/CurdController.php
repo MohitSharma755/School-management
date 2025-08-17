@@ -57,6 +57,7 @@ class CurdController extends Controller
             return response()->json(['message' => 'Student registration failed'], 500);
         }
     }
+
 // For student login
     public function studentlogin(Request $request){
         // dd($request->all());
@@ -81,4 +82,44 @@ class CurdController extends Controller
         }
 
     }
+    // For student logout
+    public function studentlogout(Request $request){
+        // Perform logout logic here
+        return redirect()->route('Student')->with('success', 'Logout successful');
+    }
+
+    // For get Student information
+    public function getStudentInfo(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'password' => 'required|string|min:6|max:100'
+        ]);
+        // Get the authenticated student's information
+        $student = DB::table('student-_registration')->where('studentId', $request->user()->studentId)->where('userId', $request->user()->id)->get();
+        $studentInfo = Student_Registration::get();
+if(count($student) > 0){
+    session()->put('name', $request->name);
+    if(session()->has('name')){
+        // Student found, you can access the information
+        $name = session()->get('name');
+        $password = session()->get('password');
+         return view('spanel',['name' => $name, 'password' => $password, 'studentInfo' => $studentInfo])->with('success', 'Student information retrieved successfully');
+    }
+     else{
+            return redirect()->back()->with('error', 'Student not found');
+        }
+        // Check if the student exists
+         if ($student->isEmpty()) {
+            return redirect()->back()->with('error', 'Student not found');
+        }
+        else{
+            // Student found, you can access the information
+            $studentInfo = $student->first();
+            return view('studentdashboard', compact('studentInfo'));
+        }
+       
+
+        // return view('studentdashboard', compact('student'));
+    }
+}
 }

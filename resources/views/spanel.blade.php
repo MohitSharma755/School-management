@@ -23,7 +23,7 @@
                 <i class="bi bi-list"></i>
             </button>
             <div class="collapse navbar-collapse d-none d-md-flex justify-content-end">
-                <div class="navbar-text me-4 text-white">Welcome, Admin</div>
+                <div class="navbar-text me-4 text-white">Welcome,</div>
             </div>
         </div>
     </nav>
