@@ -1,31 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\UserController;
 use App\Models\Student_Registration;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
 class CurdController extends Controller
+
+
 {
+
+   
     public function studentsignup(Request $request){
         
 
     
-        // 1. Validate the incoming request data
-//         $validatedData = $request->validate([
-//             'name' => 'required|string|max:255',
-//             'email' => 'required|email', // 'unique' check against your table
-//             'password' => 'required|string|min:8|confirmed',
-//             'address' => 'required|string',
-//             'class' => 'required|string|max:50',
-//             'phoneNumber' => 'required|string|max:15',
-//             'emergencyContact' => 'required|string|max:15',
-//             'userId' => 'nullable|string',
-//             'userType' => 'required|string',
-//             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-//         ]);
-// dd($validatedData);
+        
         // 2. Handle file upload first
         $fileName = null;
         if ($request->hasFile('img')) {
@@ -85,7 +77,11 @@ class CurdController extends Controller
     // For student logout
     public function studentlogout(Request $request){
         // Perform logout logic here
-        return redirect()->route('Student')->with('success', 'Logout successful');
+        if(isset($request->user()->id)){
+            $request->session()->flush(); // Clear the session
+            // $request->session()->regenerate(); // Regenerate the session ID
+        }
+        // return redirect()->route('Student')->with('success', 'Logout successful');
     }
 
     // For get Student information

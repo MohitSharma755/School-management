@@ -41,7 +41,7 @@ Route::get('/admin', [UserController::class, 'admin'])->name('admin');
 
 Route::post('studentsignup', [CurdController::class, 'studentsignup'])->name('studentsignup');
 Route::post('studentlogin', [CurdController::class, 'studentlogin'])->name('studentlogin');
-Route::post('studentlogout', [CurdController::class, 'studentlogout'])->name('studentlogout');
+Route::get('studentlogout', [CurdController::class, 'studentlogout'])->name('studentlogout');
 
 
 

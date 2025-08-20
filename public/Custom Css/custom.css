@@ -10,7 +10,7 @@ a {
 }
 
 a:hover {
-    color: #eef1f2;
+    color: #eef1f2 !important;
     background: linear-gradient(135deg, #119ce1 10%, #764ba2 100%);
 }
 
