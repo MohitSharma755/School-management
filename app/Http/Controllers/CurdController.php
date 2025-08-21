@@ -11,7 +11,9 @@ class CurdController extends Controller
 
 
 {
-
+    public function student(){
+        return view('studentlogin');    
+    }
    
     public function studentsignup(Request $request){
         
@@ -70,18 +72,45 @@ class CurdController extends Controller
         else{
 
             // If login is successful, redirect to the student dashboard
-            return redirect()->route('studentdashboard')->with('success', 'Login successful');
+            // $request->session()->put('name', $name);
+            // $request->session()->put('password', $password);
+            // $request->session()->put('userId', $data->userId);
+            // $request->session()->put('email', $data->email);
+            // dd($request->session()->get('user')->email);
+            
+            session(['user' => $data]); // Store user data in session
+           
+            return redirect()->route('studentdashboard',['user'=>$data->name])->with('success', 'Login successful');
         }
 
     }
+    public function studentdashboard(){
+        $user = session('user');
+
+        if (!$user) {
+            return redirect()->route('login')->withErrors(['message' => 'Session expired, please log in again.']);
+        }
+        
+        return view('spanel', [
+            'name' => $user->name,
+            'password' => $user->password,
+            'userId' => $user->userId,	
+        ]);
+        
+        // return view('spanel', ['name' => session('user')->name, 'password' => session('user')->password]);
+    }
     // For student logout
-    public function studentlogout(Request $request){
+    public function studentlogout(Request  $request){
+        //  Optional: dd($request->session()->all()); // to debug current session
         // Perform logout logic here
-        if(isset($request->user()->id)){
+        if(isset($request->user()->userId)){
             $request->session()->flush(); // Clear the session
             // $request->session()->regenerate(); // Regenerate the session ID
+            return redirect()->route('Student')->with('success', 'Logout successful');
         }
-        // return redirect()->route('Student')->with('success', 'Logout successful');
+        else{
+            return redirect()->route('Student')->with('error', 'You are not logged in');
+        }
     }
 
     // For get Student information

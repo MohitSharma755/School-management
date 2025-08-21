@@ -27,7 +27,10 @@
                 <i class="bi bi-list"></i>
             </button>
             <div class="collapse navbar-collapse d-none d-md-flex justify-content-end">
-                <div class="navbar-text me-4 text-white">Welcome,</div>
+                <div class="navbar-text me-4 text-white">Welcome,{{session('user')->name}}
+                    <img src="{{ asset('upload/student/'.session('user')->profilePicture) }}" class="rounded" alt="no image" height="30px" width="40px">
+
+                </div>
             </div>
         </div>
     </nav>
@@ -77,37 +80,49 @@
             <ul class="list-group list-group-flush">
 
 
-               <a href="http://" target="_blank" rel="noopener noreferrer"> <li class="list-group-item">Student`s Application</li></a>
-               <a href="http://" target="_blank" rel="noopener noreferrer"> <li class="list-group-item">Check your Attendence</li></a>
-               <a href="http://" target="_blank" rel="noopener noreferrer"> <li class="list-group-item">Check your Class</li></a>
-               <a href="http://" target="_blank" rel="noopener noreferrer"> <li class="list-group-item">Give Feedback</li></a>
-               <a href="http://" target="_blank" rel="noopener noreferrer"> <li class="list-group-item">Pay Fee</li></a>
-               <a href="http://" target="_blank" rel="noopener noreferrer"> <li class="list-group-item">Library </li></a>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <li class="list-group-item">Student`s Application</li>
+                </a>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <li class="list-group-item">Check your Attendence</li>
+                </a>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <li class="list-group-item">Check your Class</li>
+                </a>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <li class="list-group-item">Give Feedback</li>
+                </a>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <li class="list-group-item">Pay Fee</li>
+                </a>
+                <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <li class="list-group-item">Library </li>
+                </a>
 
 
-               <button type="" class="button" data-toggle="collapse" data-target="#st">
-                 
-                <li class="list-group-item">
-                    <svg height="30" width="30" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="none" strokeLinejoin="round" strokeWidth="4">
-                        <path
-                            d="M36.686 15.171C37.9364 16.9643 38.8163 19.0352 39.2147 21.2727H44V26.7273H39.2147C38.8163 28.9648 37.9364 31.0357 36.686 32.829L40.0706 36.2137L36.2137 40.0706L32.829 36.686C31.0357 37.9364 28.9648 38.8163 26.7273 39.2147V44H21.2727V39.2147C19.0352 38.8163 16.9643 37.9364 15.171 36.686L11.7863 40.0706L7.92939 36.2137L11.314 32.829C10.0636 31.0357 9.18372 28.9648 8.78533 26.7273H4V21.2727H8.78533C9.18372 19.0352 10.0636 16.9643 11.314 15.171L7.92939 11.7863L11.7863 7.92939L15.171 11.314C16.9643 10.0636 19.0352 9.18372 21.2727 8.78533V4H26.7273V8.78533C28.9648 9.18372 31.0357 10.0636 32.829 11.314L36.2137 7.92939L40.0706 11.7863L36.686 15.171Z"
-                            fill="#2F88FF" stroke="#000" />
-                        <path
-                            d="M24 29C26.7614 29 29 26.7614 29 24C29 21.2386 26.7614 19 24 19C21.2386 19 19 21.2386 19 24C19 26.7614 21.2386 29 24 29Z"
-                            fill="#43CCF8" stroke="#fff" />
-                    </g>
-                </svg> 
-                Settings
-                </li>
-            </button>
-            <div id="st" class="collapse">
-                <a href="{{ route('studentlogout')}}" rel="noopener noreferrer">Logout</a>
+                <button type="" class="button" data-toggle="collapse" data-target="#st">
 
-                {{-- <button type= "post" class="list-group-item text-danger btn btn-danger" >Logout</button> --}}
+                    <li class="list-group-item">
+                        <svg height="30" width="30" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" strokeLinejoin="round" strokeWidth="4">
+                                <path
+                                    d="M36.686 15.171C37.9364 16.9643 38.8163 19.0352 39.2147 21.2727H44V26.7273H39.2147C38.8163 28.9648 37.9364 31.0357 36.686 32.829L40.0706 36.2137L36.2137 40.0706L32.829 36.686C31.0357 37.9364 28.9648 38.8163 26.7273 39.2147V44H21.2727V39.2147C19.0352 38.8163 16.9643 37.9364 15.171 36.686L11.7863 40.0706L7.92939 36.2137L11.314 32.829C10.0636 31.0357 9.18372 28.9648 8.78533 26.7273H4V21.2727H8.78533C9.18372 19.0352 10.0636 16.9643 11.314 15.171L7.92939 11.7863L11.7863 7.92939L15.171 11.314C16.9643 10.0636 19.0352 9.18372 21.2727 8.78533V4H26.7273V8.78533C28.9648 9.18372 31.0357 10.0636 32.829 11.314L36.2137 7.92939L40.0706 11.7863L36.686 15.171Z"
+                                    fill="#2F88FF" stroke="#000" />
+                                <path
+                                    d="M24 29C26.7614 29 29 26.7614 29 24C29 21.2386 26.7614 19 24 19C21.2386 19 19 21.2386 19 24C19 26.7614 21.2386 29 24 29Z"
+                                    fill="#43CCF8" stroke="#fff" />
+                            </g>
+                        </svg>
+                        Settings
+                    </li>
+                </button>
+                <div id="st" class="collapse">
+                    <a href="{{ route('studentlogout') }}" rel="noopener noreferrer">Logout</a>
 
-            </div>
-                  
+                    {{-- <button type= "post" class="list-group-item text-danger btn btn-danger" >Logout</button> --}}
+
+                </div>
+
                 <!-- A long list of placeholder items to enable scrolling -->
 
 
@@ -146,9 +161,9 @@
                     <tbody>
                         <tr>
 
-                            <td class="color">John Doe</td>
-                            <td class="color">john@example.com</td>
-                            <td class="color">Computer Science</td>
+                            <td class="color">{{session('user')->name}}</td>
+                            <td class="color">{{session('user')->email}}</td>
+                            <td class="color">{{session('user')->class}}</td>
                             <td class="color">6th sem/ 3rd Year</td>
 
                         </tr>
