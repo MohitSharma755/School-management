@@ -42,7 +42,7 @@
           
             <div class="row text-center text-md-start g-2">
                 <div class="col-12 col-md-8 ">
-                    <a href="http://" target="_blank" class="p-2" rel="noopener noreferrer">Create an account?</a>
+                    <a href="{{route('adminregister')}}" target="_blank" class="p-2" rel="noopener noreferrer">Create an account?</a>
                 </div>
                 <div class="col-12 col-md-4 text-md-end ">
                     <a href="http://" target="_blank" class="p-2" rel="noopener noreferrer">Forgot Password?</a>

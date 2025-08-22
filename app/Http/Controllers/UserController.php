@@ -6,79 +6,94 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-   public function index()
-   {
-       return view('welcome');
-   }
-   public function Login()
-   {
-       return view('login');
-   }
-  
-//    for members 
-   public function member(){
-    return view('members');
-   }
-    public function memberlogin(){
-         return view('loginstaff');
+    public function index()
+    {
+        return view('welcome');
     }
-// Students section
-   public function student(){
-       return view('studentlogin');    
-   }
+    public function Login()
+    {
+        return view('login');
+    }
+
+    //    for members 
+    public function member()
+    {
+        return view('members');
+    }
+    public function memberlogin()
+    {
+        return view('loginstaff');
+    }
+    // Students section
+    public function student()
+    {
+        return view('studentlogin');
+    }
     public function register()
-   {
-       return view('studentsignup');
-   }
-public function studentdashboard(){
-    return view('spanel');
-}
-//    For admin dashboard
-   public function admin(){
-    return view('admin/welcome');
+    {
+        return view('studentsignup');
+    }
+    public function studentdashboard()
+    {
+        return view('spanel');
     }
 
-   public function dashboard()
-   {
-       return view('admin/admindashboard');
-   }
-   public function profile()
-   {
-       return view('profile');
-   }
-   public function settings()
-   {
-       return view('settings');
-   }
-   public function logout()
-   {
-       // Logic for logging out the user
-       return redirect()->route('login');
-   }
-   public function forgotPassword()
-   {
-       return view('forgot-password');
-   }
-   public function resetPassword()
-   {
-       return view('reset-password');
-   }
-   public function verifyEmail()
-   {
-       return view('verify-email');
-   }
-   public function termsOfService()
-   {
-       return view('terms-of-service');
 
-   }   
+    //    For admin dashboard
+    public function admin()
+    {
+        return view('admin/welcome');
+    }
+
+     public function adminregister(){
+        return view('admin/adminregister');
+     }
+
+    public function adminsignup(Request $request)
+    {
+       dd($request->all());
+    }
    
-//    Forms Routes
+    public function dashboard()
+    {
+        return view('admin/admindashboard');
+    }
+    public function profile()
+    {
+        return view('profile');
+    }
+    public function settings()
+    {
+        return view('settings');
+    }
+    public function logout()
+    {
+        // Logic for logging out the user
+        return redirect()->route('login');
+    }
+    public function forgotPassword()
+    {
+        return view('forgot-password');
+    }
+    public function resetPassword()
+    {
+        return view('reset-password');
+    }
+    public function verifyEmail()
+    {
+        return view('verify-email');
+    }
+    public function termsOfService()
+    {
+        return view('terms-of-service');
+    }
+
+    //    Forms Routes
     public function studentdata(Request $request)
     {
-         // Handle the student registration logic here
-         // For example, you can validate and save the data to the database
-         // return redirect()->route('studentdashboard');
-         return "Student data submitted successfully!";
+        // Handle the student registration logic here
+        // For example, you can validate and save the data to the database
+        // return redirect()->route('studentdashboard');
+        return "Student data submitted successfully!";
     }
 }

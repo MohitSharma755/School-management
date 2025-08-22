@@ -27,6 +27,8 @@ Route::get('/member', [UserController::class, 'member'])->name('member');
 Route::get('/Staff',[UserController::class,'memberlogin'])->name('staff');
 
 // Admins Routes
+Route::get('/adminregister',[UserController::class,'adminregister'])->name('adminregister');
+Route::post('/adminsignup',[UserController::class,'adminsignup'])->name('adminsignup');
 Route::get('/AdminPanel', [UserController::class, 'dashboard'])->name('dashboard');
 Route::get('/admin', [UserController::class, 'admin'])->name('admin');
 // Route::get('login', function () {
@@ -38,10 +40,10 @@ Route::get('/admin', [UserController::class, 'admin'])->name('admin');
 
 // Route for forms
 // Route::post('Login',[Register::class, 'login'])->name('login'); 
-// Route::post('Student',[CurdController::class, 'student'])->name('student');
+Route::post('Student',[CurdController::class, 'student'])->name('student');
 Route::post('studentsignup', [CurdController::class, 'studentsignup'])->name('studentsignup');
 Route::post('studentlogin', [CurdController::class, 'studentlogin'])->name('studentlogin');
-Route::get('studentlogout/', [CurdController::class, 'studentlogout'])->name('studentlogout');
+Route::get('studentlogout', [CurdController::class, 'studentlogout'])->name('studentlogout');
 
 
 

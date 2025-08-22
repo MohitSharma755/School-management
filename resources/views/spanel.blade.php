@@ -117,7 +117,10 @@
                     </li>
                 </button>
                 <div id="st" class="collapse">
+                   <li class="list-group-item">
+                        {{-- <a href="{{ route('studentprofile') }}" rel="noopener noreferrer">Profile</a> --}}
                     <a href="{{ route('studentlogout') }}" rel="noopener noreferrer">Logout</a>
+                   </li>
 
                     {{-- <button type= "post" class="list-group-item text-danger btn btn-danger" >Logout</button> --}}
 
