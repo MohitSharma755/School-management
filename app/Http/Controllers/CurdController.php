@@ -28,6 +28,9 @@ class CurdController extends Controller
             $fileName = time() . '.' . $extension;
             $file->move(public_path('upload/student'), $fileName);
         }
+        else{
+            return redirect()->back()->with('error', 'Profile picture is required');
+        }
 
         // 3. Create a new student object and assign values
         $student = new Student_Registration();

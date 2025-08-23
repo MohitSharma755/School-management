@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin;
 
 class UserController extends Controller
 {
@@ -51,7 +52,33 @@ class UserController extends Controller
 
     public function adminsignup(Request $request)
     {
-       dd($request->all());
+    //    dd($request->all());
+     // 2. Handle file upload first
+     $fileName = null;
+     if ($request->hasFile('img')) {
+         $file = $request->file('img');
+         $extension = $file->getClientOriginalExtension(); // Use getClientOriginalExtension for a cleaner name
+         $fileName = time() . '.' . $extension;
+         $file->move(public_path('upload/admin'), $fileName);
+     }
+     else{
+         return redirect()->back()->with('error', 'Profile picture is required');
+     }
+    //  Create a admin object for insert data;
+    $admin = new Admin();
+    $admin->name = $request['name'];
+    $admin->email = $request['email'];
+    $admin->usertype= $request['role'];
+    $admin->userId = random_int(1,100);
+    $admin->password = $request['password'];
+    $admin->profilePicture = $fileName; // Assign the uploaded file name
+    if($admin->save()){
+        return redirect()->route('admin')->with('success','Admin registered successfully');
+    }
+    else{
+        return response()->json(['message' => 'Admin registration failed'], 500);
+    }
+
     }
    
     public function dashboard()

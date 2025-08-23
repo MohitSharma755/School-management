@@ -68,11 +68,11 @@
             </div>
 
             <div class="mb-3">
-                <label for="class" class="form-label">Role <span class="text-danger">*</span></label>
-                <select name="class" id="class" class="form-control">
+                <label for="role" class="form-label">Role <span class="text-danger">*</span></label>
+                <select name="role" id="role" class="form-control">
                     <option value="">Please Select Your Role</option>
-                    <option value="1">Super Admin</option>
-                    <option value="1">Admin</option>
+                    <option >Super Admin</option>
+                    <option >Admin</option>
                     
                 </select>
             </div>

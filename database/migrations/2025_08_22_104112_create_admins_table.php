@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('userId')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('profilePicture')->unique(); // Column for the student's profile picture, nullable
+            // $table->string('role');
             $table->rememberToken();
         
             $table->timestamps();
