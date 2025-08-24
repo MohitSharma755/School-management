@@ -28,9 +28,11 @@ Route::get('/Staff',[UserController::class,'memberlogin'])->name('staff');
 
 // Admins Routes
 Route::get('/adminregister',[UserController::class,'adminregister'])->name('adminregister');
-Route::post('/adminsignup',[UserController::class,'adminsignup'])->name('adminsignup');
 Route::get('/AdminPanel', [UserController::class, 'dashboard'])->name('dashboard');
 Route::get('/admin', [UserController::class, 'admin'])->name('admin');
+Route::post('/adminsignup',[UserController::class,'adminsignup'])->name('adminsignup');
+Route::post('/adminlogin',[UserController::class,'adminlogin'])->name('adminlogin');
+Route::get('/adminlogout',[UserController::class,'adminlogout'])->name('adminlogout');
 // Route::get('login', function () {
 //     return view ('login');
 // });

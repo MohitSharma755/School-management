@@ -50,6 +50,7 @@ class UserController extends Controller
         return view('admin/adminregister');
      }
 
+    //  Admin registration
     public function adminsignup(Request $request)
     {
     //    dd($request->all());
@@ -79,7 +80,22 @@ class UserController extends Controller
         return response()->json(['message' => 'Admin registration failed'], 500);
     }
 
+}
+    // Admin Login
+    public function adminlogin(Request $request){
+        // dd($request->all());
+        $admin=Admin::where('name',$request->name)
+        ->where('password',$request->password);
+        if($admin->exists()){
+            $request->session()->put('ADMIN_LOGIN',true);
+            $request->session()->put('ADMIN_NAME',$request->name);
+            return redirect('AdminPanel',['session'=>$request->name])->with('success','Welcome to Admin Panel');
+        }
+        else{
+            return redirect()->back()->with('error','Please enter valid login details');
+        }
     }
+
    
     public function dashboard()
     {

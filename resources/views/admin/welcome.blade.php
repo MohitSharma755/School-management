@@ -17,7 +17,7 @@
 <body class="bg-official ">
 
     <div class=" bg-official p-3 p-md-5 d-flex flex-column justify-content-center align-items-center min-vh-100 ">
-        <form action="{{ url('Login') }}" method ="post"
+        <form action="{{ url('adminlogin') }}" method ="post"
             class="bg-white p-3  shadow-lg rounded-3  w-100 form-container ">
             <h1 class="color text-center">Admin Login </h1>
             @csrf
@@ -36,7 +36,7 @@
             </div>
             <div class="d-flex justify-content-center ">
 
-                <button class="btn btn-primary  my-4 ">Go To Dashboard</button>
+                <button class="btn btn-primary  my-4 ">Go To Panel</button>
 
             </div>
           
