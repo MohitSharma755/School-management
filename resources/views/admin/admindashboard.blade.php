@@ -36,8 +36,10 @@
             </div>
         </div>
     </nav>
-
+<form action="{{ url('adminlogout') }}" method="post">
+    @csrf
     <div class="d-flex">
+
         <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
             <h2 class="text-center mb-4">Faculties</h2>
@@ -133,7 +135,7 @@
                 </button>
                 <div id="st" class="collapse">
 
-                    <div class="list-group-item text-danger" >Logout</div>
+                    <button class=" text-danger ">Logout</button>
 
                 </div>
                 <!-- A long list of placeholder items to enable scrolling -->
@@ -186,47 +188,49 @@
                                 </div>
                             </td>
                         </tr>
-                        {{-- <nav class="navbar navbar-inverse bg-official">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                            
-      </button>
-   
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active">
-             <button type="" class="button" data-toggle="collapse" data-target="#stafff">
-                    <li class="list-group-item">
-                    <li class="list-group-item">
-                        <img src="{{ asset('images/staff.png') }}" alt="Manage Faculties"
-                            style="width: 40px; height: 40px; "> Manage Faculties
-                    </li>
-                </button>
-                </div>
-                <div id="stafff" class="collapse">
-
-                    <li class="list-group-item">Staff`s Application</li>
-                    <li class="list-group-item">Teacher`s Application</li>
-                    <li class="list-group-item">Teacher`s Salary</li>
-                    <li class="list-group-item">Staff`s Salary</li>
-                    <li class="list-group-item">Teacher`s Feedback</li>
-                    <li class="list-group-item">Library Record</li>
-                </li>
-       
-    </div>
-  </div>
- 
-</nav> --}}
                     </tbody>
                 </table>
             </div>
 
         </main>
     </div>
+    </form>
 
 
 </body>
 
 </html>
+
+            {{-- <nav class="navbar navbar-inverse bg-official">
+<div class="container-fluid">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                
+</button>
+
+</div>
+<div class="collapse navbar-collapse" id="myNavbar">
+<ul class="nav navbar-nav">
+<li class="active">
+ <button type="" class="button" data-toggle="collapse" data-target="#stafff">
+        <li class="list-group-item">
+        <li class="list-group-item">
+            <img src="{{ asset('images/staff.png') }}" alt="Manage Faculties"
+                style="width: 40px; height: 40px; "> Manage Faculties
+        </li>
+    </button>
+    </div>
+    <div id="stafff" class="collapse">
+
+        <li class="list-group-item">Staff`s Application</li>
+        <li class="list-group-item">Teacher`s Application</li>
+        <li class="list-group-item">Teacher`s Salary</li>
+        <li class="list-group-item">Staff`s Salary</li>
+        <li class="list-group-item">Teacher`s Feedback</li>
+        <li class="list-group-item">Library Record</li>
+    </li>
+
+</div>
+</div>
+
+</nav> --}}

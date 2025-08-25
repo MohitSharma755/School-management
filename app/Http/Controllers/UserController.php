@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -46,57 +47,74 @@ class UserController extends Controller
         return view('admin/welcome');
     }
 
-     public function adminregister(){
+    public function adminregister()
+    {
         return view('admin/adminregister');
-     }
+    }
 
     //  Admin registration
     public function adminsignup(Request $request)
     {
-    //    dd($request->all());
-     // 2. Handle file upload first
-     $fileName = null;
-     if ($request->hasFile('img')) {
-         $file = $request->file('img');
-         $extension = $file->getClientOriginalExtension(); // Use getClientOriginalExtension for a cleaner name
-         $fileName = time() . '.' . $extension;
-         $file->move(public_path('upload/admin'), $fileName);
-     }
-     else{
-         return redirect()->back()->with('error', 'Profile picture is required');
-     }
-    //  Create a admin object for insert data;
-    $admin = new Admin();
-    $admin->name = $request['name'];
-    $admin->email = $request['email'];
-    $admin->usertype= $request['role'];
-    $admin->userId = random_int(1,100);
-    $admin->password = $request['password'];
-    $admin->profilePicture = $fileName; // Assign the uploaded file name
-    if($admin->save()){
-        return redirect()->route('admin')->with('success','Admin registered successfully');
+        //    dd($request->all());
+        // 2. Handle file upload first
+        $fileName = null;
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $extension = $file->getClientOriginalExtension(); // Use getClientOriginalExtension for a cleaner name
+            $fileName = time() . '.' . $extension;
+            $file->move(public_path('upload/admin'), $fileName);
+        } else {
+            return redirect()->back()->with('error', 'Profile picture is required');
+        }
+        //  Create a admin object for insert data;
+        $admin = new Admin();
+        $admin->name = $request['name'];
+        $admin->email = $request['email'];
+        $admin->usertype = $request['role'];
+        $admin->userId = random_int(1, 100);
+        $admin->password = $request['password'];
+        $admin->profilePicture = $fileName; // Assign the uploaded file name
+        if ($admin->save()) {
+            return redirect()->route('admin')->with('success', 'Admin registered successfully');
+        } else {
+            return response()->json(['message' => 'Admin registration failed'], 500);
+        }
     }
-    else{
-        return response()->json(['message' => 'Admin registration failed'], 500);
-    }
-
-}
     // Admin Login
-    public function adminlogin(Request $request){
+    public function adminlogin(Request $request)
+    {
         // dd($request->all());
-        $admin=Admin::where('name',$request->name)
-        ->where('password',$request->password);
-        if($admin->exists()){
-            $request->session()->put('ADMIN_LOGIN',true);
-            $request->session()->put('ADMIN_NAME',$request->name);
-            return redirect('AdminPanel',['session'=>$request->name])->with('success','Welcome to Admin Panel');
-        }
-        else{
-            return redirect()->back()->with('error','Please enter valid login details');
+        // $name = $request->input('name');
+        // $password = $request->input('password');
+        // if (empty($name) || empty($password)) {
+        //     return redirect()->back()->with('error', 'Name and password are required');
+        // }
+        // $admin=DB::table('admin')->where('name',$name)->first();
+        // if($admin && $admin->password==$password){
+        //     $request->session()->put('ADMIN_LOGIN', true);
+        //     $request->session()->put('ADMIN_NAME', $request->name);
+        //     session(['name'=>$admin->name]);
+        //     return redirect('AdminPanel',['name'=>$admin->name])->with('success', 'Admin login successfully');
+        // }else{
+        //     return redirect()->back()->withErrors(['message' => 'Invalid name or password']);
+        // }
+
+        $admin = Admin::where('name', $request->name)
+            ->where('password', $request->password);
+        if ($admin->exists()) {
+            $request->session()->put('ADMIN_LOGIN', true);
+            $request->session()->put('ADMIN_NAME', $request->name);
+            session(['name' => $admin->first()->name]);
+            return redirect('AdminPanel')->with('success', 'Admin login successfully');
+        } else {
+            return redirect()->back()->with('error', 'Please enter valid login details');
         }
     }
 
-   
+
+     public function adminlogout(){
+        echo "working";
+     }
     public function dashboard()
     {
         return view('admin/admindashboard');
