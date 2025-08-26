@@ -12,27 +12,28 @@ use App\Http\Controllers\Register;
 // Route::get('/reset-password', [UserController::class, 'resetPassword'])->name('reset-password');
 // Route::get('/verify-email', [UserController::class, 'verifyEmail'])->name('verify-email');
 // Route::get('/terms-of-service', [UserController::class, 'termsOfService'])->name('terms-of-service');
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/Teacherlogin', [UserController::class, 'login'])->name('login');
 Route::get('/register', [UserController::class, 'register'])->name('register');
 
 // Students section
 Route::get('/Student', [UserController::class, 'student'])->name('student');
-Route::get('/studentdashboard',[UserController::class,'studentdashboard'])->name('studentdashboard');
+Route::get('/studentdashboard', [UserController::class, 'studentdashboard'])->name('studentdashboard');
 Route::get('/', function () {
     return view('welcome');
 });
 
 // Memebers Routes
 Route::get('/member', [UserController::class, 'member'])->name('member');
-Route::get('/Staff',[UserController::class,'memberlogin'])->name('staff');
+Route::get('/Staff', [UserController::class, 'memberlogin'])->name('staff');
+Route::post('Teachers', [UserController::class, 'teachers'])->name('teacher');
 
 // Admins Routes
-Route::get('/adminregister',[UserController::class,'adminregister'])->name('adminregister');
+Route::get('/adminregister', [UserController::class, 'adminregister'])->name('adminregister');
 Route::get('/AdminPanel', [UserController::class, 'dashboard'])->name('dashboard');
 Route::get('/admin', [UserController::class, 'admin'])->name('admin');
-Route::post('/adminsignup',[UserController::class,'adminsignup'])->name('adminsignup');
-Route::post('/adminlogin',[UserController::class,'adminlogin'])->name('adminlogin');
-Route::post('/adminlogout',[UserController::class,'adminlogout'])->name('adminlogout');
+Route::post('/adminsignup', [UserController::class, 'adminsignup'])->name('adminsignup');
+Route::post('/adminlogin', [UserController::class, 'adminlogin'])->name('adminlogin');
+Route::post('/adminlogout', [UserController::class, 'adminlogout'])->name('adminlogout');
 // Route::get('login', function () {
 //     return view ('login');
 // });
@@ -41,8 +42,8 @@ Route::post('/adminlogout',[UserController::class,'adminlogout'])->name('adminlo
 // });
 
 // Route for forms
-// Route::post('Login',[Register::class, 'login'])->name('login'); 
-Route::post('Student',[CurdController::class, 'student'])->name('student');
+// Route::post('Login',[Register::class, 'login'])->name('login');
+Route::post('Student', [CurdController::class, 'student'])->name('student');
 Route::post('studentsignup', [CurdController::class, 'studentsignup'])->name('studentsignup');
 Route::post('studentlogin', [CurdController::class, 'studentlogin'])->name('studentlogin');
 Route::get('studentlogout', [CurdController::class, 'studentlogout'])->name('studentlogout');

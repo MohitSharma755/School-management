@@ -48,7 +48,7 @@ class CurdController extends Controller
         // 4. Save the student object and check for success
         if ($student->save()) {
             // Registration successful
-            return redirect()->route('Student')->with('success', 'Student registered successfully');
+            return redirect()->route('student')->with('success', 'Student registered successfully');
         } else {
             // Handle the unlikely case of a save failure
             return response()->json(['message' => 'Student registration failed'], 500);
@@ -108,11 +108,11 @@ class CurdController extends Controller
         // Perform logout logic here
         if(isset($request->user()->userId)){
             $request->session()->flush(); // Clear the session
-            // $request->session()->regenerate(); // Regenerate the session ID
-            return redirect()->route('Student')->with('success', 'Logout successful');
+            $request->session()->regenerate(true); // Regenerate the session ID
+            return redirect()->route('student')->with('success', 'Logout successful');
         }
         else{
-            return redirect()->route('Student')->with('error', 'You are not logged in');
+            return redirect()->route('student')->with('error', 'You are not logged in');
         }
     }
 

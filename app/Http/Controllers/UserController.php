@@ -14,10 +14,10 @@ class UserController extends Controller
     }
     public function Login()
     {
-        return view('login');
+        return view('teachers/welcome');
     }
 
-    //    for members 
+    //    for members
     public function member()
     {
         return view('members');
@@ -84,37 +84,55 @@ class UserController extends Controller
     public function adminlogin(Request $request)
     {
         // dd($request->all());
-        // $name = $request->input('name');
-        // $password = $request->input('password');
-        // if (empty($name) || empty($password)) {
-        //     return redirect()->back()->with('error', 'Name and password are required');
-        // }
-        // $admin=DB::table('admin')->where('name',$name)->first();
-        // if($admin && $admin->password==$password){
+        $name = $request->input('name');
+        $password = $request->input('password');
+
+        if (empty($name) && empty($password)) {
+            return redirect()->back()->with('error', 'Name and password are required');
+        } else {
+            // return redirect()->route('AdminPanel');
+        }
+        $admin = DB::table('admin')->where('name', $name)->first();
+        if (!$admin || $admin->password !== $password) {
+            return redirect()->back()->withErrors(['message' => 'Invalid name or password']);
+        } else {
+            session(['admin' => $admin->name]);
+            return redirect('AdminPanel?name=' . $admin->name)->with('success', 'Admin login successfully'); // Corrected line
+
+        }
+
+        // $admin = Admin::where('name', $request->name)
+        //     ->where('password', $request->password);
+        // if ($admin->exists()) {
         //     $request->session()->put('ADMIN_LOGIN', true);
         //     $request->session()->put('ADMIN_NAME', $request->name);
-        //     session(['name'=>$admin->name]);
-        //     return redirect('AdminPanel',['name'=>$admin->name])->with('success', 'Admin login successfully');
-        // }else{
-        //     return redirect()->back()->withErrors(['message' => 'Invalid name or password']);
+        //     session(['name' => $admin->first()->name]);
+        //     return redirect('AdminPanel')->with('success', 'Admin login successfully');
+        // } else {
+        //     return redirect()->back()->with('error', 'Please enter valid login details');
         // }
-
-        $admin = Admin::where('name', $request->name)
-            ->where('password', $request->password);
-        if ($admin->exists()) {
-            $request->session()->put('ADMIN_LOGIN', true);
-            $request->session()->put('ADMIN_NAME', $request->name);
-            session(['name' => $admin->first()->name]);
-            return redirect('AdminPanel')->with('success', 'Admin login successfully');
-        } else {
-            return redirect()->back()->with('error', 'Please enter valid login details');
-        }
     }
 
+    public function adminlogout(Request $request)
+    {
+        // Check if the 'admin' session key exists.
+        // This is the session key you set during login: session(['admin' => $admin->name]);
+        if ($request->session()->has('admin')) {
 
-     public function adminlogout(){
-        echo "working";
-     }
+            // Clear all session data for the current session
+            $request->session()->flush();
+
+            // Regenerate the session ID to prevent session fixation attacks
+            $request->session()->regenerate(true);
+
+            // Redirect to the home page (the root URL) and flash a success message
+            return redirect('/admin')->with('success', 'You have been logged out successfully.');
+        }
+
+        // If no admin session exists, redirect them back anyway to prevent errors
+        // or to a specific page informing them they aren't logged in.
+        return redirect('/');
+    }
     public function dashboard()
     {
         return view('admin/admindashboard');

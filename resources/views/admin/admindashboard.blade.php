@@ -130,14 +130,10 @@
                                 fill="#43CCF8" stroke="#fff" />
                         </g>
                     </svg> 
-                    Settings
+                    Logout
                     </li>
                 </button>
-                <div id="st" class="collapse">
-
-                    <button class=" text-danger ">Logout</button>
-
-                </div>
+                
                 <!-- A long list of placeholder items to enable scrolling -->
 
 
