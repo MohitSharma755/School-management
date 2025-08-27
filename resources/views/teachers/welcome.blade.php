@@ -17,14 +17,13 @@
 <body class="bg-official ">
 
     <div class=" bg-official p-3 p-md-5 d-flex flex-column justify-content-center align-items-center min-vh-100 ">
-        <form action="{{ url('Login') }}" method ="post"
+        <form action="{{ url('Login') }}" method="post"
             class="bg-white p-3  shadow-lg rounded-3  w-100 form-container ">
             <h1 class="color text-center">Teacher Login </h1>
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-                <input type="text" placeholder="Please enter your name" id="name" name="name"
-                    class="form-control">
+                <input type="text" placeholder="Please enter your name" id="name" name="name" class="form-control">
             </div>
 
             <label for="password">Password <span class="text-danger">*</span></label>
@@ -42,7 +41,8 @@
 
             <div class="row text-center text-md-start g-2">
                 <div class="col-12 col-md-8 ">
-                    <a href="{{ route('member') }}" target="_blank" class="p-2" rel="noopener noreferrer">Create an
+                    <a href="{{ route('Teachersignup') }}" target="_blank" class="p-2" rel="noopener noreferrer">Create
+                        an
                         account?</a>
                 </div>
                 <div class="col-12 col-md-4 text-md-end ">

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members Registration</title>
+    <title>Teachers Registration</title>
     <!-- Bootstrap CSS -->
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="{{ asset('Bootstrap Css/css/bootstrap.css') }}">
@@ -15,10 +15,10 @@
 
 <body class="bg-light">
     <div class="bg-official p-3 p-md-5 d-flex justify-content-center align-items-center min-vh-100">
-        <form action="{{ url('') }}" method="post"
+        <form action="{{ url('TeacherRegistration') }}" method="post"
             class="form-container bg-white shadow border rounded-3 p-3 p-md-4 w-100">
             @csrf
-            <h1 class="text-success text-center mb-4">Members Registration</h1>
+            <h1 class="text-success text-center mb-4">Teachers Registration</h1>
 
             <div class="mb-3">
                 <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
@@ -46,8 +46,8 @@
 
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number <span class="text-danger">*</span></label>
-                <input type="tel" required placeholder="Please enter your phone number" id="phone"
-                    name="phoneNumber" class="form-control">
+                <input type="tel" required placeholder="Please enter your phone number" id="phone" name="phoneNumber"
+                    class="form-control">
             </div>
 
             <div class="mb-3">
@@ -57,27 +57,32 @@
             </div>
 
             <div class="mb-3">
-                <label for="class" class="form-label">Faculty Type <span class="text-danger">*</span></label>
-                <select name="class" id="class" class="form-control">
+                <label for="class" class="form-label">Subjects <span class="text-danger">*</span></label>
+                <select name="subject" id="class" class="form-control">
                     <option>Please Select Your Subject</option>
-                    <option>Librariyan</option>
-                    <option>Driver</option>
-                    <option>Staff</option>
-                    <option>Others</option>
+                    <option>Hindi</option>
+                    <option>English</option>
+                    <option>Math</option>
+                    <option>Science</option>
+                    <option>Social Studies</option>
+                    <option>Physical Education</option>
+                    <option>Art</option>
+                    <option>Sports</option>
 
                 </select>
             </div>
 
-            {{-- <div class="mb-3">
+            <div class="mb-3">
                 <label for="usertype" class="form-label">User Type</label>
                 <input type="text" required placeholder="Please enter your user type" id="usertype" name="usertype"
-                    value="Student" class="form-control" readonly>
-            </div> --}}
+                    value="Teacher" class="form-control" readonly>
+            </div>
 
-            {{-- <div class="mb-3">
+            <div class="mb-3">
                 <label for="date" class="form-label">Date</label>
-                <input type="datetime-local" name="date" id="date" class="form-control" value="{{ date('Y-m-d\TH:i') }}" readonly>
-            </div> --}}
+                <input type="datetime-local" name="date" id="date" class="form-control" value="{{ date('Y-m-d\TH:i') }}"
+                    readonly>
+            </div>
 
             <div class="mb-3">
                 <label for="img" class="form-label">Profile Picture</label>
@@ -88,7 +93,7 @@
                 <button type="submit" class="btn btn-primary btn-lg">Register</button>
                 <div class="mt-3">
                     <span class="d-block d-sm-inline">If you have an account, please </span>
-                    <a href="#" class="text-decoration-none">Login</a>
+                    <a href="{{ route('teachers') }}" class="text-decoration-none p-2">Login</a>
                 </div>
             </div>
         </form>

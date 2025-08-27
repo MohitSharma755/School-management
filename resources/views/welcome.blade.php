@@ -27,7 +27,7 @@
                         Login
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{{ route('login') }}" target="_blank">Teacher Login</a></li>
+                        <li><a class="dropdown-item" href="{{ route('teachers') }}" target="_blank">Teacher Login</a></li>
                         <li><a class="dropdown-item" href="{{ route('staff') }}" target="_blank">Faculty</a></li>
                         <li><a class="dropdown-item" href="{{ route('student') }}" target="_blank">Student</a></li>
                     </ul>

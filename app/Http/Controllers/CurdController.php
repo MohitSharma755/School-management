@@ -12,14 +12,14 @@ class CurdController extends Controller
 
 {
     public function student(){
-        return view('studentlogin');    
+        return view('student/studentlogin');
     }
-   
-    public function studentsignup(Request $request){
-        
 
-    
-        
+    public function studentsignup(Request $request){
+
+
+
+
         // 2. Handle file upload first
         $fileName = null;
         if ($request->hasFile('img')) {
@@ -48,7 +48,7 @@ class CurdController extends Controller
         // 4. Save the student object and check for success
         if ($student->save()) {
             // Registration successful
-            return redirect()->route('student')->with('success', 'Student registered successfully');
+            return redirect()->route('student/student')->with('success', 'Student registered successfully');
         } else {
             // Handle the unlikely case of a save failure
             return response()->json(['message' => 'Student registration failed'], 500);
@@ -80,10 +80,10 @@ class CurdController extends Controller
             // $request->session()->put('userId', $data->userId);
             // $request->session()->put('email', $data->email);
             // dd($request->session()->get('user')->email);
-            
+
             session(['user' => $data]); // Store user data in session
-           
-            return redirect()->route('studentdashboard',['user'=>$data->name])->with('success', 'Login successful');
+
+            return redirect()->route('student/studentdashboard',['user'=>$data->name])->with('success', 'Login successful');
         }
 
     }
@@ -93,13 +93,13 @@ class CurdController extends Controller
         if (!$user) {
             return redirect()->route('login')->withErrors(['message' => 'Session expired, please log in again.']);
         }
-        
-        return view('spanel', [
+
+        return view('student/spanel', [
             'name' => $user->name,
             'password' => $user->password,
-            'userId' => $user->userId,	
+            'userId' => $user->userId,
         ]);
-        
+
         // return view('spanel', ['name' => session('user')->name, 'password' => session('user')->password]);
     }
     // For student logout
@@ -109,10 +109,10 @@ class CurdController extends Controller
         if(isset($request->user()->userId)){
             $request->session()->flush(); // Clear the session
             $request->session()->regenerate(true); // Regenerate the session ID
-            return redirect()->route('student')->with('success', 'Logout successful');
+            return redirect()->route('student/student')->with('success', 'Logout successful');
         }
         else{
-            return redirect()->route('student')->with('error', 'You are not logged in');
+            return redirect()->route('student/student')->with('error', 'You are not logged in');
         }
     }
 
@@ -131,7 +131,7 @@ if(count($student) > 0){
         // Student found, you can access the information
         $name = session()->get('name');
         $password = session()->get('password');
-         return view('spanel',['name' => $name, 'password' => $password, 'studentInfo' => $studentInfo])->with('success', 'Student information retrieved successfully');
+         return view('student/spanel',['name' => $name, 'password' => $password, 'studentInfo' => $studentInfo])->with('success', 'Student information retrieved successfully');
     }
      else{
             return redirect()->back()->with('error', 'Student not found');
@@ -145,7 +145,7 @@ if(count($student) > 0){
             $studentInfo = $student->first();
             return view('studentdashboard', compact('studentInfo'));
         }
-       
+
 
         // return view('studentdashboard', compact('student'));
     }
