@@ -5,21 +5,27 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CurdController;
 use App\Http\Controllers\Register;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\Staff;
 
 
 // Route::get('/Teacherlogin', [UserController::class, 'login'])->name('login');
-Route::get('/register', [UserController::class, 'register'])->name('register');
+// Route::get('/register', [UserController::class, 'register'])->name('register');
 
 // Students section
-Route::get('/Student', [UserController::class, 'student'])->name('student');
-Route::get('/studentdashboard', [UserController::class, 'studentdashboard'])->name('studentdashboard');
+// Route::get('/Student', [UserController::class, 'student'])->name('student');
+// Route::get('/studentdashboard', [UserController::class, 'studentdashboard'])->name('studentdashboard');
 Route::get('/', function () {
     return view('welcome');
 });
 
 // Memebers Routes
-Route::get('/member', [UserController::class, 'member'])->name('member');
-Route::get('/Staff', [UserController::class, 'memberlogin'])->name('staff');
+Route::get('/member', [Staff::class, 'staffregisterpage'])->name('member');
+Route::get('/Staff', [Staff::class, 'staffloginpage'])->name('staff');
+Route::get('panel',[Staff::class,'dashboard'])->name('staffpanel');
+Route::get('forgetpassword',[Staff::class,'recoverpass'])->name('staffpass');
+// For forms
+Route::post('staffregistration',[Staff::class,'staffregister'])->name('staffregistartion');
+Route::post('stafflogin',[Staff::class,'loginstaff'])->name('stafflogin');
 
 
 // Teachers routing
