@@ -14,6 +14,9 @@ class CurdController extends Controller
     public function student(){
         return view('student/studentlogin');
     }
+    public function studentpanel(){
+        return view('student/spanel');
+    }
 
     public function studentsignup(Request $request){
 
@@ -82,8 +85,9 @@ class CurdController extends Controller
             // dd($request->session()->get('user')->email);
 
             session(['user' => $data]); // Store user data in session
+            // return redirect('student/spanel');
 
-            return redirect()->route('student/studentdashboard',['user'=>$data->name])->with('success', 'Login successful');
+            return redirect()->route('student.studentdashboard',['user'=>$data->name])->with('success', 'Login successful');
         }
 
     }

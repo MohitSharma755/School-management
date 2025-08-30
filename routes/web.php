@@ -8,12 +8,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\Staff;
 
 
-// Route::get('/Teacherlogin', [UserController::class, 'login'])->name('login');
-// Route::get('/register', [UserController::class, 'register'])->name('register');
 
-// Students section
-// Route::get('/Student', [UserController::class, 'student'])->name('student');
-// Route::get('/studentdashboard', [UserController::class, 'studentdashboard'])->name('studentdashboard');
 Route::get('/', function () {
     return view('welcome');
 });
@@ -45,8 +40,9 @@ Route::post('/adminlogout', [UserController::class, 'adminlogout'])->name('admin
 
 // Route for forms
 
-Route::post('Student', [CurdController::class, 'student'])->name('student');
-Route::post('studentsignup', [CurdController::class, 'studentsignup'])->name('studentsignup');
+Route::get('Student', [CurdController::class, 'student'])->name('student');
+Route::get('/studentdashboard', [CurdController::class, 'studentpanel'])->name('studentpanel');
+Route::get('studentsignup', [CurdController::class, 'studentsignup'])->name('studentsignup');
 Route::post('studentlogin', [CurdController::class, 'studentlogin'])->name('studentlogin');
 Route::get('studentlogout', [CurdController::class, 'studentlogout'])->name('studentlogout');
 
