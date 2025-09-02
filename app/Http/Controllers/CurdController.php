@@ -17,7 +17,9 @@ class CurdController extends Controller
     public function studentpanel(){
         return view('student/spanel');
     }
-
+public function studentregistration(){
+    return view('student/studentsignup');
+}
     public function studentsignup(Request $request){
 
 
@@ -51,7 +53,7 @@ class CurdController extends Controller
         // 4. Save the student object and check for success
         if ($student->save()) {
             // Registration successful
-            return redirect()->route('student/student')->with('success', 'Student registered successfully');
+            return redirect()->view('student/studentlogin')->with('success', 'Student registered successfully');
         } else {
             // Handle the unlikely case of a save failure
             return response()->json(['message' => 'Student registration failed'], 500);
@@ -87,7 +89,7 @@ class CurdController extends Controller
             session(['user' => $data]); // Store user data in session
             // return redirect('student/spanel');
 
-            return redirect()->route('student.studentdashboard',['user'=>$data->name])->with('success', 'Login successful');
+            return view('student/spanel',['user'=>$data->name])->with('success', 'Login successful');
         }
 
     }
@@ -113,10 +115,10 @@ class CurdController extends Controller
         if(isset($request->user()->userId)){
             $request->session()->flush(); // Clear the session
             $request->session()->regenerate(true); // Regenerate the session ID
-            return redirect()->route('student/student')->with('success', 'Logout successful');
+            return view('student/studentlogin')->with('success', 'Logout successful');
         }
         else{
-            return redirect()->route('student/student')->with('error', 'You are not logged in');
+            return view('student/studentlogin')->with('error', 'You are not logged in');
         }
     }
 

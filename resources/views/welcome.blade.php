@@ -23,13 +23,17 @@
 
             <div class="col-12 col-md-4 d-flex justify-content-md-end justify-content-start mt-2 mt-md-0">
                 <div class="dropdown">
-                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Login
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{{ route('teachers') }}" target="_blank">Teacher Login</a></li>
+                        <li><a class="dropdown-item" href="{{ route('teachers') }}" target="_blank">Teacher Login</a>
+                        </li>
                         <li><a class="dropdown-item" href="{{ route('staff') }}" target="_blank">Faculty</a></li>
                         <li><a class="dropdown-item" href="{{ route('student') }}" target="_blank">Student</a></li>
+                        <li><a class="dropdown-item" href="{{ route('library') }}" target="_blank">Library</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -39,11 +43,12 @@
     <main class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <img src="{{ asset('images/school-carton.jpg') }}" alt="School Image" class="img-fluid w-100" >
+                <img src="{{ asset('images/school-carton.jpg') }}" alt="School Image" class="img-fluid w-100">
             </div>
         </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

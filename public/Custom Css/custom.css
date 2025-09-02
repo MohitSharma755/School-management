@@ -2,7 +2,6 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-
 }
 
 a {
@@ -15,16 +14,11 @@ a:hover {
 }
 
 .color {
-
     background: linear-gradient(135deg, #119ce1 10%, #764ba2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     /* For Firefox (needs experimental flag) */
-
-
-
-
 }
 
 .toggle-password {
@@ -56,15 +50,13 @@ a:hover {
 .link {
     color: #119ce1 !important;
     text-decoration: none;
-    transition: color 0.10s ease;
-
+    transition: color 0.1s ease;
 }
 
 .link:hover {
     color: green !important;
     text-decoration: underline;
     /* transition: color 0.3s ease; */
-
 }
 
 .bg-image {
@@ -74,14 +66,18 @@ a:hover {
     background-position: center;
     background-repeat: no-repeat;
 }
-
+.library {
+    background-image: url("../upload/library/library.png");
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 .width {
     min-width: 50% !important;
 }
 
-
-
-@media screen and (max-width: 1024) and (min-width:320) {
+@media screen and (max-width: 1024) and (min-width: 320) {
     .width {
         width: 50%;
         background-color: bisque;
@@ -110,7 +106,6 @@ a:hover {
     .sidebar {
         transform: translateX(-100%);
     }
-
 }
 
 .sidebar {
@@ -128,7 +123,6 @@ a:hover {
     z-index: 1000;
 }
 
-
 /* State when the button is clicked on mobile: visible */
 .sidebar.show-sidebar {
     transform: translateX(0);
@@ -138,7 +132,6 @@ a:hover {
     margin-left: 250px;
     padding-top: 56px;
 }
-
 
 li:hover {
     background: linear-gradient(135deg, #119ce1 10%, #764ba2 100%);
