@@ -143,3 +143,6 @@ li:hover {
     padding: 0%;
     border: none;
 }
+.transparent {
+    background: transparent;
+}
