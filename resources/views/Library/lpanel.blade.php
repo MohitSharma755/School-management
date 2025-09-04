@@ -140,6 +140,10 @@
                     <div class="d-flex flex-wrap gap-2 mt-4">
                         <a href="{{route('student')}}" target="_blank" rel="noopener noreferrer"
                             class="btn btn-primary shadow-sm rounded-pill">Upload A book</a>
+                        <div class="bg-light">
+                            Total Members
+
+                        </div>
                         <a href="#" class="btn btn-secondary shadow-sm rounded-pill">Total Members</a>
                         <a href="#" class="btn btn-primary shadow-sm rounded-pill">Total Books</a>
                         <a href="#" class="btn btn-secondary shadow-sm rounded-pill">Active Members</a>
