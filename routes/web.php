@@ -49,7 +49,7 @@ Route::get('studentlogout', [CurdController::class, 'studentlogout'])->name('stu
 
 // Library Routes
 Route::get('library', [LibraryController::class, 'library'])->name('library');
-Route::get('lportal',[LibraryController::class,'portal'])->name('portal');
+Route::get('libraryportal',[LibraryController::class,'portal'])->name('libraryportal');
 
 
 
