@@ -156,4 +156,7 @@ if(count($student) > 0){
         // return view('studentdashboard', compact('student'));
     }
 }
+public function review(){
+    return view('student/review');
+}
 }

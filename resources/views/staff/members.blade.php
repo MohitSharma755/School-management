@@ -7,18 +7,19 @@
     <title>Members Registration</title>
     <!-- Bootstrap CSS -->
     <!-- Bootstrap css -->
-<link rel="stylesheet" href="{{ asset('Bootstrap Css/css/bootstrap.css') }}">
-<!-- Custom Css -->
-<link rel="stylesheet" href="{{ asset('Custom Css/custom.css') }}">
-   
+    <link rel="stylesheet" href="{{ asset('Bootstrap Css/css/bootstrap.css') }}">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="{{ asset('Custom Css/custom.css') }}">
+
 </head>
 
 <body class="bg-light">
     <div class="bg-official p-3 p-md-5 d-flex justify-content-center align-items-center min-vh-100">
-        <form action="{{ url('') }}" method="post" class="form-container bg-white shadow border rounded-3 p-3 p-md-4 w-100">
+        <form action="{{ url('createmembers') }}" method="post"
+            class="form-container bg-white shadow border rounded-3 p-3 p-md-4 w-100">
             @csrf
             <h1 class="text-success text-center mb-4">Members Registration</h1>
-            
+
             <div class="mb-3">
                 <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
                 <input type="text" required placeholder="Please enter your name" id="name" name="name"
@@ -51,19 +52,19 @@
 
             <div class="mb-3">
                 <label for="emergency" class="form-label">Emergency Contact <span class="text-danger">*</span></label>
-                <input type="tel" required placeholder="Please enter emergency contact number" id="emergency" name="emergency"
-                    class="form-control">
+                <input type="tel" required placeholder="Please enter emergency contact number" id="emergency"
+                    name="emergency" class="form-control">
             </div>
 
             <div class="mb-3">
                 <label for="class" class="form-label">Faculty Type <span class="text-danger">*</span></label>
-                <select name="class" id="class" class="form-control">
+                <select name="usertype" id="class" class="form-control">
                     <option value="">Please Select Your Type</option>
-                    <option value="1">Librariyan</option>
-                    <option value="2">Driver</option>
-                    <option value="3">Staff</option>
-                    <option value="4">Others</option>
-                   
+                    <option>Librariyan</option>
+                    <option>Driver</option>
+                    <option>Staff</option>
+                    <option>Others</option>
+
                 </select>
             </div>
 
@@ -75,7 +76,8 @@
 
             {{-- <div class="mb-3">
                 <label for="date" class="form-label">Date</label>
-                <input type="datetime-local" name="date" id="date" class="form-control" value="{{ date('Y-m-d\TH:i') }}" readonly>
+                <input type="datetime-local" name="date" id="date" class="form-control" value="{{ date('Y-m-d\TH:i') }}"
+                    readonly>
             </div> --}}
 
             <div class="mb-3">

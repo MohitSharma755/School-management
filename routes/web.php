@@ -20,6 +20,7 @@ Route::get('forgetpassword',[Staff::class,'recoverpass'])->name('staffpass');
 // For forms
 Route::post('staffregistration',[Staff::class,'staffregister'])->name('staffregistartion');
 Route::post('stafflogin',[Staff::class,'loginstaff'])->name('stafflogin');
+Route::post('createmembers',[Staff::class,'createmember'])->name('createmembers');  
 
 
 // Teachers routing
@@ -50,6 +51,9 @@ Route::get('studentlogout', [CurdController::class, 'studentlogout'])->name('stu
 // Library Routes
 Route::get('library', [LibraryController::class, 'library'])->name('library');
 Route::get('libraryportal',[LibraryController::class,'portal'])->name('libraryportal');
+Route::get('librarianlogin',[LibraryController::class,'librarianloginpage'])->name('librarianlogin');
+Route::get('Feedback',[CurdController::class,'review'])->name('Feedback');
+Route::get('FeedbackPage',[LibraryController::class,'feedback'])->name('FeedbackPage');
 
 
 

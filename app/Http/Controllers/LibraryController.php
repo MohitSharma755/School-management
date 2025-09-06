@@ -12,4 +12,7 @@ class LibraryController extends Controller
     public function portal(){
         return view('Library/lpanel');
     }
+    public function feedback(){
+        return view('Library/officialreview');
+    }
 }

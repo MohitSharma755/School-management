@@ -89,13 +89,13 @@ a:hover {
         background-color: #fff;
         padding: 1rem;
         position: fixed;
-        top: 56px;
+        /* top: 56px; */
         left: 0;
         width: 250px;
         overflow-y: auto;
         transition: transform 0.3s ease-in-out;
         border-right: 1px solid #dee2e6;
-        z-index: 1000;
+        /* z-index: 1000; */
     }
 
     .main-content {
@@ -114,7 +114,7 @@ a:hover {
     background-color: #fff;
     padding: 1rem;
     position: fixed;
-    top: 56px;
+    /* top: 56px; */
     left: 0;
     width: 250px;
     overflow-y: auto;
@@ -145,4 +145,11 @@ li:hover {
 }
 .transparent {
     background: transparent;
+}
+
+.bordercustom {
+    border-width: 4px; /* This sets the border thickness to 10px */
+    border-style: solid;
+    border-color: transparent; /* This creates the space for the gradient */
+    border-image: linear-gradient(135deg, #764ba2 10%, #119ce1 100%) 1;
 }

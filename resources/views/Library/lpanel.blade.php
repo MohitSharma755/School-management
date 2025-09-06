@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 🏛️ Library Portal</title>
+    <title> Library Portal</title>
     <link rel="stylesheet" href="{{ asset('Bootstrap Css/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('Custom Css/custom.css') }}">
     <script src="{{ asset('Js/custom.js') }}"></script>
@@ -20,7 +20,13 @@
 </head>
 
 <body class="bg-light">
-    <h1 class="text-center py-3">Welcome in Library Portal</h1>
+    <div class="bg-official p-2 d-flex justify-content-between align-items-center">
+        <h1 class="text-center p-3 text-white">Welcome in Library Portal</h1>
+
+        <form action="">
+            <h5> <button type="submit" class="btn btn-danger text-white">Logout</button></h5>
+        </form>
+    </div>
     <!-- Navbar -->
 
     {{-- <form> --}}
@@ -28,7 +34,7 @@
         <div class="d-flex">
 
             <!-- Sidebar -->
-            <aside id="sidebar" class="sidebar bg-official shadow-lg">
+            <aside id="sidebar" class="sidebar bg-official">
                 <li class="list-group-item active" aria-current="true">
                     <h1 class="text-white">Dashboard</h1>
                 </li>
@@ -42,7 +48,7 @@
                     <a href="http://" target="_blank" rel="noopener noreferrer">
                         <li class="list-group-item ">💡 Member`s Suggestions</li>
                     </a>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
+                    <a href="{{ route('FeedbackPage') }}" target="_blank" rel="noopener noreferrer">
                         <li class="list-group-item">👍 Member`s Feedback</li>
                     </a>
                     <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">
@@ -56,6 +62,16 @@
                     </a>
                     <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">
                         <div> ✅️ Issued books</div>
+                    </a>
+                    <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">
+                        <div>
+                            🙍🏻‍♂️ Make a member</div>
+                    </a>
+
+                    <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">
+                        <div>
+
+                            ❌ Remove a member</div>
                     </a>
 
 

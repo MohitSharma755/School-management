@@ -12,4 +12,9 @@ class Staff extends Controller
     public function staffregisterpage(){
         return view('staff/members');
     }
+    public function createmember(Request $request){
+
+        dd($request->all());
+    
+    }
 }

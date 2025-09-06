@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->id();
-        $table->string('name'); // Column for the student's name
+               $table->string('name'); // Column for the student's name
             $table->string('email')->unique(); // Column for the student's email, must be unique  
             $table->string('password'); // Column for the student's password
             $table->string('address')->unique(); // Column for the student's address, nullable
-            $table->string('class'); // Column for the course the student is registering for
+            // $table->string('class'); // Column for the course the student is registering for
             $table->string('phoneNumber')->unique(); // Column for the student's phone number, unique
             $table->string('emergencyContact')->unique(); // Column for the emergency contact, unique
             $table->string('remember_token')->nullable(); // Column for the remember token, unique
@@ -26,23 +26,7 @@ return new class extends Migration
             $table->string('profilePicture')->unique(); // Column for the student's profile picture, nullable
             $table->date('registrationDate'); // Column for the registration date
            
-            $table->rememberToken();
             $table->timestamps();
-        });
-
-        Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
-
-        Schema::create('sessions', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->foreignId('user_id')->nullable()->index();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->longText('payload');
-            $table->integer('last_activity')->index();
         });
     }
 
@@ -51,8 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('staff');
     }
 };
