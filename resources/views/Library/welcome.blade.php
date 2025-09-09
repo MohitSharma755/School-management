@@ -18,7 +18,7 @@
 
 
     <div class="   p-3 p-md-5 d-flex flex-column justify-content-center align-items-center min-vh-100 ">
-        <form action="{{ url('Login') }}" method="post"
+        <form action="{{ url('libraryLogin') }}" method="post"
             class=" p-3  bg-white shadow-lg rounded-3  w-100 form-container ">
             <h1 class="color text-center">Library Login </h1>
             @csrf

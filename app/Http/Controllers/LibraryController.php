@@ -15,4 +15,15 @@ class LibraryController extends Controller
     public function feedback(){
         return view('Library/officialreview');
     }
+    public function libraryLogin(Request $request){
+        echo "Library Login Function Called";
+
+        // $request->validate([
+        //     'email' => 'required|email',
+        //     'password' => 'required|min:6',
+        // ]);
+        // Authentication logic here
+
+        // return redirect()->route('library.portal');
+    }
 }
