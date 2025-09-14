@@ -23,8 +23,9 @@
     <div class="bg-official p-2 d-flex justify-content-between align-items-center">
         <h1 class="text-center p-3 text-white">Welcome in Library Portal</h1>
 
-        <form action="">
+        <form action="{{ url('librarylogout') }}">
             <h5> <button type="submit" class="btn btn-danger text-white">Logout</button></h5>
+            @csrf
         </form>
     </div>
     <!-- Navbar -->

@@ -55,6 +55,7 @@ Route::get('librarianlogin',[LibraryController::class,'librarianloginpage'])->na
 Route::get('Feedback',[CurdController::class,'review'])->name('Feedback');
 Route::get('FeedbackPage',[LibraryController::class,'feedback'])->name('FeedbackPage');
 Route::post('libraryLogin',[LibraryController::class,'libraryLogin'])->name('libraryLogin');
+Route::get('librarylogout',[LibraryController::class,'libraryLogout'])->name('librarylogout');
 
 
 

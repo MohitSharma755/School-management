@@ -153,3 +153,7 @@ li:hover {
     border-color: transparent; /* This creates the space for the gradient */
     border-image: linear-gradient(135deg, #764ba2 10%, #119ce1 100%) 1;
 }
+button:hover {
+    /* border-image: linear-gradient(135deg, #764ba2 10%, #119ce1 100%) 1; */
+    background: linear-gradient(135deg, #119ce1 10%, #764ba2 100%);
+}
