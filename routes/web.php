@@ -35,7 +35,7 @@ Route::get('/AdminPanel', [UserController::class, 'dashboard'])->name('dashboard
 Route::get('/admin', [UserController::class, 'admin'])->name('admin');
 Route::post('/adminsignup', [UserController::class, 'adminsignup'])->name('adminsignup');
 Route::post('/adminlogin', [UserController::class, 'adminlogin'])->name('adminlogin');
-Route::post('/adminlogout', [UserController::class, 'adminlogout'])->name('adminlogout');
+Route::get('/adminlogout', [UserController::class, 'adminlogout'])->name('adminlogout');
 
 
 // Route for forms

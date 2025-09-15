@@ -123,15 +123,19 @@ class UserController extends Controller
             $request->session()->flush();
 
             // Regenerate the session ID to prevent session fixation attacks
-            $request->session()->regenerate(true);
+            // $request->session()->regenerate(true);
 
             // Redirect to the home page (the root URL) and flash a success message
-            return redirect('/admin')->with('success', 'You have been logged out successfully.');
+            return redirect ('admin')->with('success', 'You have been logged out successfully.');
+        }
+        else{
+            return redirect ('admin')->with('success', 'You have been logged out successfully.');
+
         }
 
         // If no admin session exists, redirect them back anyway to prevent errors
         // or to a specific page informing them they aren't logged in.
-        return redirect('/');
+        // return redirect('/');
     }
     public function dashboard()
     {
