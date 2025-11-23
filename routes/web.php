@@ -7,6 +7,7 @@ use App\Http\Controllers\Register;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\LibraryController;
+use App\Http\Controllers\Allrecord;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,7 +59,10 @@ Route::post('libraryLogin',[LibraryController::class,'libraryLogin'])->name('lib
 Route::get('librarylogout',[LibraryController::class,'libraryLogout'])->name('librarylogout');
 
 
-
+// Records Routes
+Route::get('studentrecord',[Allrecord::class,'student'])->name('student');
+Route::get('facultyrecord',[Allrecord::class,'faculty'])->name('faculty');
+Route::get('teacherrecord',[Allrecord::class,'teacher'])->name('teacher');
 
 
 // cache clear

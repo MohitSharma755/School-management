@@ -79,19 +79,26 @@ public function studentregistration(){
         }
         else{
 
-            // If login is successful, redirect to the student dashboard
-            // $request->session()->put('name', $name);
-            // $request->session()->put('password', $password);
-            // $request->session()->put('userId', $data->userId);
-            // $request->session()->put('email', $data->email);
-            // dd($request->session()->get('user')->email);
 
-            session(['user' => $data]); // Store user data in session
+// Store user data in session. Here user is the key of session
+            session(['user' => $data]);
             // return redirect('student/spanel');
 
             return view('student/spanel',['user'=>$data->name])->with('success', 'Login successful');
         }
 
+    }
+    public function studentlogout(Request  $request){
+        //  Optional: dd($request->session()->all()); // to debug current session
+        // Perform logout logic here
+        if($request->session()->has('user')){
+            $request->session()->flush();
+            return redirect('Student')->with('sucsess','Logout done');
+        }
+
+        else{
+            return redirect('error')->with('error', 'You are not logged in');
+        }
     }
     public function studentdashboard(){
         $user = session('user');
@@ -109,18 +116,7 @@ public function studentregistration(){
         // return view('spanel', ['name' => session('user')->name, 'password' => session('user')->password]);
     }
     // For student logout
-    public function studentlogout(Request  $request){
-        //  Optional: dd($request->session()->all()); // to debug current session
-        // Perform logout logic here
-        if(isset($request->user()->userId)){
-            $request->session()->flush(); // Clear the session
-            $request->session()->regenerate(true); // Regenerate the session ID
-            return view('student/studentlogin')->with('success', 'Logout successful');
-        }
-        else{
-            return view('student/studentlogin')->with('error', 'You are not logged in');
-        }
-    }
+
 
     // For get Student information
     public function getStudentInfo(Request $request){

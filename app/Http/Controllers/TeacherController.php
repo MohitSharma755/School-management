@@ -14,7 +14,8 @@ class TeacherController extends Controller
         return view('teachers/welcome');
     }
     public function Teacherregister(Request $request){
-        // dd($request->all());
+        dd($request->all());
+
         // echo "Working";
     }
     public function Teacherlogin(){

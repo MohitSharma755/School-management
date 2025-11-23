@@ -22,14 +22,22 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-official shadow-sm fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold text-white" href="">Student Panel</a>
+
             <!-- Hamburger button for mobile only -->
             <button class="btn btn-outline-secondary d-md-none" type="button" id="sidebar-toggle">
                 <i class="bi bi-list"></i>
             </button>
             <div class="collapse navbar-collapse d-none d-md-flex justify-content-end">
                 <div class="navbar-text me-4 text-white">Welcome,{{session('user')->name}}
-                    <img src="{{ asset('upload/student/'.session('user')->profilePicture) }}" class="rounded" alt="no image" height="30px" width="40px">
+                    <img src="{{ asset('upload/student/'.session('user')->profilePicture) }}" class="rounded"
+                        alt="no image" height="30px" width="40px">
 
+                </div>
+                <div>
+                    <form action="{{ url('studentlogout') }}">
+                        <h5> <button type="submit" class="btn btn-danger text-white">Logout</button></h5>
+                        @csrf
+                    </form>
                 </div>
             </div>
         </div>
@@ -67,8 +75,8 @@
                             d="M36.74 23.37c-.02.01-.03.03-.04.04c-.13.16-.29.26-.47.31c-.04.02-.08.03-.12.03c-.06.02-.11.02-.17.02s-.12 0-.17-.02c-.04 0-.08-.01-.12-.03a.897.897 0 0 1-.36-.19a.752.752 0 0 1-.15-.16c-1.65-1.86-5.85-2.25-7.85-2.26c-.19 0-.36.01-.5.01a.978.978 0 0 1-.73-.27a.992.992 0 0 1-.31-.72v-8.47c0-.56.45-1 1-1s1 .44 1 1v7.47c.22 0 .48.01.76.03c2.04.12 5.36.57 7.43 2.24c.28.21.53.45.76.72c.31.36.32.88.04 1.25z" />
                         <path
                             d="M46.13 11.66v8.47c0 .27-.11.53-.3.72c-.2.18-.44.28-.74.28c-.14-.01-.31-.01-.49-.01c-2.01 0-6.22.38-7.86 2.25c-.02.01-.03.03-.04.04c-.13.16-.29.26-.47.31c-.04.02-.08.03-.12.03c-.06.02-.11.02-.17.02s-.12 0-.17-.02c-.04 0-.08-.01-.12-.03a.897.897 0 0 1-.36-.19a.752.752 0 0 1-.15-.16a.994.994 0 0 1 .04-1.25c.23-.27.48-.51.76-.72c2.07-1.67 5.39-2.12 7.43-2.24c.28-.02.54-.03.76-.03v-7.47c0-.56.45-1 1-1s1 .44 1 1z" />
-                        <path d="m50.321 11.655l-15.13-2.53l-13.88 2.53" fill="none" stroke="#000"
-                            strokeLinecap="round" strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" />
+                        <path d="m50.321 11.655l-15.13-2.53l-13.88 2.53" fill="none" stroke="#000" strokeLinecap="round"
+                            strokeLinejoin="round" strokeMiterlimit="10" strokeWidth="2" />
                         <path d="M21.313 21a1 1 0 0 1-1-1v-8.12a1 1 0 1 1 2 0V20a1 1 0 0 1-1 1z" />
                         <path
                             d="M19.285 23.58a.999.999 0 0 1-.785-1.618l2.026-2.58a1 1 0 0 1 1.573 1.236l-2.027 2.58a.998.998 0 0 1-.787.382z" />
@@ -118,12 +126,12 @@
                 </button>
                 <div id="st" class="collapse">
                     <a href="{{ route('studentlogout') }}" rel="noopener noreferrer" class="text-danger">
-                   <li class="list-group-item ">
-                    Logout
-                        {{-- <a href="{{ route('studentprofile') }}" rel="noopener noreferrer">Profile</a> --}}
-                   </li>
-                </a>
-                    {{-- <button type= "post" class="list-group-item text-danger btn btn-danger" >Logout</button> --}}
+                        <li class="list-group-item ">
+                            Logout
+                            {{-- <a href="{{ route('studentprofile') }}" rel="noopener noreferrer">Profile</a> --}}
+                        </li>
+                    </a>
+                    {{-- <button type="post" class="list-group-item text-danger btn btn-danger">Logout</button> --}}
 
                 </div>
 

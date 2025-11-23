@@ -140,11 +140,22 @@
             <div class="bg-white p-4 p-md-5 rounded-3 shadow-sm mb-4">
                 <h3 class="fw-bold text-dark">Manage Students</h3>
                 <div class="d-flex flex-wrap gap-2 mt-4">
-                    <a href="{{route('student')}}" target="_blank" rel="noopener noreferrer"
+                    <a href="{{route('studentregister')}}" target="_blank" rel="noopener noreferrer"
                         class="btn btn-primary shadow-sm rounded-pill">Add Student</a>
-                    <a href="#" class="btn btn-secondary shadow-sm rounded-pill">View All Students</a>
-                    <a href="#" class="btn btn-primary shadow-sm rounded-pill">Add Faculty</a>
-                    <a href="#" class="btn btn-secondary shadow-sm rounded-pill">View All Faculties</a>
+                    <a href="{{route('student')  }}" class="btn btn-secondary shadow-sm rounded-pill"
+                        target="_blank">View All
+                        Students</a>
+                    <a href="{{ route('member') }}" target="_blank" class="btn btn-primary shadow-sm rounded-pill">Add
+                        Faculty</a>
+                    <a href="{{route('faculty')  }}" class="btn btn-secondary shadow-sm rounded-pill"
+                        target="_blank">View All
+                        Faculties</a>
+                    <a href="{{ route('Teachersignup') }}" class="btn btn-primary shadow-sm rounded-pill"
+                        target="_blank">Add
+                        Teachers</a>
+                    <a href="{{route('teacher')  }}" class="btn btn-secondary shadow-sm rounded-pill"
+                        target="_blank">View All
+                        Teachers</a>
                 </div>
             </div>
 

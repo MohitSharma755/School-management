@@ -26,19 +26,7 @@ class UserController extends Controller
     {
         return view('loginstaff');
     }
-    // Students section
-    // public function student()
-    // {
-    //     return view('studentlogin');
-    // }
-    // public function register()
-    // {
-    //     return view('studentsignup');
-    // }
-    // public function studentdashboard()
-    // {
-    //     return view('spanel');
-    // }
+
 
 
     //    For admin dashboard
