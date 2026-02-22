@@ -39,7 +39,7 @@ Route::post('/adminlogin', [UserController::class, 'adminlogin'])->name('adminlo
 Route::get('/adminlogout', [UserController::class, 'adminlogout'])->name('adminlogout');
 
 
-// Route for forms
+// Route for Students
 
 Route::get('Student', [CurdController::class, 'student'])->name('student');
 Route::post('studentdashboard', [CurdController::class, 'studentpanel'])->name('studentpanel');
@@ -47,7 +47,7 @@ Route::get('studentregister', [CurdController::class, 'studentregistration'])->n
 Route::post('studentsignup', [CurdController::class, 'studentsignup'])->name('studentsignup');
 Route::post('studentlogin', [CurdController::class, 'studentlogin'])->name('studentlogin');
 Route::get('studentlogout', [CurdController::class, 'studentlogout'])->name('studentlogout');
-
+route::get('slib',[CurdController::class,'studentbook'])->name('slib');
 
 // Library Routes
 Route::get('library', [LibraryController::class, 'library'])->name('library');
@@ -57,10 +57,11 @@ Route::get('Feedback',[CurdController::class,'review'])->name('Feedback');
 Route::get('FeedbackPage',[LibraryController::class,'feedback'])->name('FeedbackPage');
 Route::post('libraryLogin',[LibraryController::class,'libraryLogin'])->name('libraryLogin');
 Route::get('librarylogout',[LibraryController::class,'libraryLogout'])->name('librarylogout');
+route::get('Book',[LibraryController::class,'Book'])->name('Book');
 
 
 // Records Routes
-Route::get('studentrecord',[Allrecord::class,'student'])->name('student');
+Route::get('studentrecord',[Allrecord::class,'student'])->name('studentrecord');
 Route::get('facultyrecord',[Allrecord::class,'faculty'])->name('faculty');
 Route::get('teacherrecord',[Allrecord::class,'teacher'])->name('teacher');
 

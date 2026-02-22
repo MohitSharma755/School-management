@@ -157,3 +157,15 @@ button:hover {
     /* border-image: linear-gradient(135deg, #764ba2 10%, #119ce1 100%) 1; */
     background: linear-gradient(135deg, #119ce1 10%, #764ba2 100%);
 }
+.book {
+    border: 2px solid transparent; /* Clean shorthand */
+    border-radius: 8px; /* Modern card look */
+    cursor: pointer; /* Correct cursor value */
+    transition: all 0.3s ease-out; /* Smooth hover effect */
+}
+
+/* Hover Effect */
+.book:hover {
+    border: 4px solid transparent;
+    border-image: linear-gradient(130deg, #764ba2 50%, #119ce1 90%) 1;
+}

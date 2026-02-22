@@ -37,8 +37,6 @@
                 <form action="{{ url('adminlogout') }}">
                     <button type="submit" class=" btn btn-danger">
 
-
-
                         Logout
 
                     </button>

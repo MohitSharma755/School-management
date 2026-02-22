@@ -52,7 +52,8 @@
                     <a href="{{ route('FeedbackPage') }}" target="_blank" rel="noopener noreferrer">
                         <li class="list-group-item">👍 Member`s Feedback</li>
                     </a>
-                    <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">
+                    <a href="{{ route('Book') }}" target="_blank" rel="noopener noreferrer"
+                        class="list-group-item border">
                         <div> 📚 Upload a Book</div>
                     </a>
                     <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">

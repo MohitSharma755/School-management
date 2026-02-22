@@ -25,6 +25,48 @@
 
 <body>
     <h1>All Teahers records will update Soon.....</h1>
+    <div>
+        <div class="table-responsive">
+            <table class="table  table-striped">
+                <thead>
+                    <tr>
+                        <th>Serial</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Phone</th>
+                        <th>Roll</th>
+                        <th>Fee</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Rohan</td>
+                        <td>1</td>
+                        <td>9897294141</td>
+                        <td>1</td>
+                        <td class="text-danger">1000 pending</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary">Edit</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Mohan</td>
+                        <td>2</td>
+                        <td>9897294141</td>
+                        <td>2</td>
+                        <td class="text-danger">No pending</td>
+                        <td>
+                            <button class="btn btn-sm btn-primary">Edit</button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 </body>
 
 </html>

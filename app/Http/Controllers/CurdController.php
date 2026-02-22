@@ -20,6 +20,9 @@ class CurdController extends Controller
 public function studentregistration(){
     return view('student/studentsignup');
 }
+public function studentbook(){
+    return view('student/studentlibrary');
+}
     public function studentsignup(Request $request){
 
 

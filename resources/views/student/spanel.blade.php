@@ -103,7 +103,7 @@
                 <a href="http://" target="_blank" rel="noopener noreferrer">
                     <li class="list-group-item">Pay Fee</li>
                 </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href="{{ route('slib') }}" target="_blank" rel="noopener noreferrer">
                     <li class="list-group-item">Library </li>
                 </a>
 

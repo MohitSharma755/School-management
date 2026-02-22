@@ -11,6 +11,9 @@ class LibraryController extends Controller
     public function library(){
         return view('Library/welcome');
     }
+    public function Book(){
+    return view('Library/books');
+    }
     public function portal(){
         return view('Library/lpanel');
     }

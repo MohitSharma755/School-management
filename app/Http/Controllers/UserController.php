@@ -103,21 +103,21 @@ class UserController extends Controller
 
     public function adminlogout(Request $request)
     {
+        // sesssion key is not availble . This code need to Fixed.I will fix after few time.
+        // This code is going in else part.
         // Check if the 'admin' session key exists.
         // This is the session key you set during login: session(['admin' => $admin->name]);
         if ($request->session()->has('admin')) {
+            dd($request->session()->all());
 
             // Clear all session data for the current session
             $request->session()->flush();
 
-            // Regenerate the session ID to prevent session fixation attacks
-            // $request->session()->regenerate(true);
 
-            // Redirect to the home page (the root URL) and flash a success message
             return redirect ('admin')->with('success', 'You have been logged out successfully.');
         }
         else{
-            return redirect ('admin')->with('success', 'You have been logged out successfully.');
+            return redirect ('/')->with('success', 'You have been logged out successfully.');
 
         }
 
