@@ -1,3 +1,4 @@
+
   function togglePassword() {
     const passwordField = document.getElementById('password');
     const passwordToggle = document.querySelector('.toggle-password span');
@@ -9,6 +10,25 @@
         passwordToggle.textContent = '👁️'; // Change icon to indicate password is hidden
     }
 }
+
+
+function confirmDelete(id) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "This book will be permanently deleted!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('delete-form-' + id).submit();
+        }
+    })
+}
+
 function toggleSidebar() {
  document.getElementById('sidebar-toggle').addEventListener('click', function () {
             const sidebar = document.getElementById('sidebar');
@@ -23,21 +43,21 @@ function toggleSidebar() {
         //     const sidebar = document.getElementById('sidebar');
         //     sidebar.classList.toggle('show-sidebar');
         // });
-        
+
         // Gemini API integration for generating student bio
         document.addEventListener('DOMContentLoaded', function () {
             const bioModal = new bootstrap.Modal(document.getElementById('bioModal'));
             const bioText = document.getElementById('bioText');
-            
+
             document.querySelectorAll('.generate-bio-btn').forEach(button => {
                 button.addEventListener('click', async function () {
                     const name = this.getAttribute('data-name');
                     const course = this.getAttribute('data-course');
-                    
+
                     // Show the modal with a loading message
                     bioText.innerHTML = 'Generating a professional bio, please wait...';
                     bioModal.show();
-                    
+
                     try {
                         const prompt = `Write a brief, professional bio for a university student named ${name} who is studying ${course}. The bio should be suitable for a student directory and highlight their academic focus.`;
 

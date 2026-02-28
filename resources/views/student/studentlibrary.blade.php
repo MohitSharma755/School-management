@@ -21,53 +21,69 @@
     <center>
         <h1 class="color">This is Digital Library for you........</h1>
         <div>
-            <input type="text" name="" id="" placeholder="Search your book by name and by author name">
+            <select name="category" class=" m-2">
+                <option value="">-- Select Book Category --</option>
+
+                option value="History">History</option>
+                <option value="Study">Study</option>
+                <option value="Technology">Technology</option>
+                <option value="Current Affair">Current Affair</option>
+                <option value="Self-Help">Self-Help</option>
+                <option value="Spiritual">Spiritual</option>
+            </select>
+
         </div>
     </center>
 
 
-    <div class="container">
-        <div class="row p-2  border ">
-            <div class="col-4 book">
-                <img src="{{ asset('images/C.jpeg') }}" alt=" no image" width="100%" height="50%">
 
-                <p>This is a very usefull book for You. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                    expedita sapiente animi doloremque molestias possimus? Velit fugit accusamus, incidunt officia
-                    pariatur quod consequuntur, consectetur labore reprehenderit autem provident, cum possimus.</p>
-            </div>
-            <div class="col-4 book">
-                <img src="{{ asset('images/C.jpeg') }}" alt=" no image" width="100%" height="50%">
-                <p>This is a very usefull book for You. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                    expedita sapiente animi doloremque molestias possimus? Velit fugit accusamus, incidunt officia
-                    pariatur quod consequuntur, consectetur labore reprehenderit autem provident, cum possimus.</p>
-            </div>
-            <div class="col-4 book">
-                <img src="{{ asset('images/C.jpeg') }}" alt=" no image" width="100%" height="50%">
-                <p>This is a very usefull book for You. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                    expedita sapiente animi doloremque molestias possimus? Velit fugit accusamus, incidunt officia
-                    pariatur quod consequuntur, consectetur labore reprehenderit autem provident, cum possimus.</p>
-            </div>
-            <div class="col-4 book">
-                <img src="{{ asset('images/C.jpeg') }}" alt=" no image" width="100%" height="50%">
+    {{-- Dynamic Book --}}
+    <div class=" container p-2 book border">
 
-                <p>This is a very usefull book for You. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                    expedita sapiente animi doloremque molestias possimus? Velit fugit accusamus, incidunt officia
-                    pariatur quod consequuntur, consectetur labore reprehenderit autem provident, cum possimus.</p>
-            </div>
-            <div class="col-4 book">
-                <img src="{{ asset('images/C.jpeg') }}" alt=" no image" width="100%" height="50%">
-                <p>This is a very usefull book for You. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                    expedita sapiente animi doloremque molestias possimus? Velit fugit accusamus, incidunt officia
-                    pariatur quod consequuntur, consectetur labore reprehenderit autem provident, cum possimus.</p>
-            </div>
-            <div class="col-4 book">
-                <img src="{{ asset('images/C.jpeg') }}" alt=" no image" width="100%" height="50%">
-                <p>This is a very usefull book for You. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-                    expedita sapiente animi doloremque molestias possimus? Velit fugit accusamus, incidunt officia
-                    pariatur quod consequuntur, consectetur labore reprehenderit autem provident, cum possimus.</p>
+
+
+
+        <div class="container">
+            <div class="row">
+
+                @foreach ($allbooks as $book)
+
+                <div class="col-4 mb-4"> {{-- 4 books per row --}}
+                    <div class="card  shadow-sm">
+
+                        <a href="{{ asset('upload/Bookwithimage/'.$book->pdf_file) }}" target="_blank"
+                            style="text-decoration: none; color: black;">
+
+                            <img src="{{ asset('upload/Bookwithimage/'.$book->cover_image) }}" class="card-img-top"
+                                style="height: 250px; object-fit: cover;">
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">{{ $book->title }}</h5>
+
+                                <p class="card-text">
+                                    <strong>Author:</strong> {{ $book->author }} <br>
+                                    <strong>Category:</strong> {{ $book->category }}
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+                </div>
+
+                @endforeach
+
             </div>
         </div>
+
+
+
     </div>
+
+
+
 </body>
 
 </html>

@@ -12,6 +12,9 @@ use App\Http\Controllers\Allrecord;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('lpanel', function () {
+    return view('Library/lpanel');
+});
 
 // Memebers Routes
 Route::get('/member', [StaffController::class, 'staffregisterpage'])->name('member');
@@ -48,6 +51,7 @@ Route::post('studentsignup', [CurdController::class, 'studentsignup'])->name('st
 Route::post('studentlogin', [CurdController::class, 'studentlogin'])->name('studentlogin');
 Route::get('studentlogout', [CurdController::class, 'studentlogout'])->name('studentlogout');
 route::get('slib',[CurdController::class,'studentbook'])->name('slib');
+route::get('slib',[LibraryController::class,'getbook'])->name('slib');
 
 // Library Routes
 Route::get('library', [LibraryController::class, 'library'])->name('library');
@@ -58,6 +62,15 @@ Route::get('FeedbackPage',[LibraryController::class,'feedback'])->name('Feedback
 Route::post('libraryLogin',[LibraryController::class,'libraryLogin'])->name('libraryLogin');
 Route::get('librarylogout',[LibraryController::class,'libraryLogout'])->name('librarylogout');
 route::get('Book',[LibraryController::class,'Book'])->name('Book');
+route::post('uploadbook',[LibraryController::class,'Books'])->name('Bookupload');
+Route::get('lpanel', [LibraryController::class, 'portal'])->name('lpanel');
+route::get('bookoperation',[LibraryController::class,'updatebooks'])->name('booksoperation');
+
+// Books Update related route (CURD)
+route::get('Edit/{id}',[LibraryController::class,'update'])->name('Edit');
+route::put('Delete/{id}',[LibraryController::class,'delete'])->name('Delete');
+// route::put('Update/{id}',[LibraryController::class,'update'])->name('Update');
+route::put('updatebook/{id}',[LibraryController::class,'booksupdate'])->name('updatebook');
 
 
 // Records Routes

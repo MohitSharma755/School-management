@@ -20,8 +20,11 @@
 </head>
 
 <body class="bg-light">
+
     <div class="bg-official p-2 d-flex justify-content-between align-items-center">
-        <h1 class="text-center p-3 text-white">Welcome in Library Portal</h1>
+        <h1 class="text-center p-3 text-white">
+            Welcome in Library Portal MR. {{ session('staff')->name ?? '' }}
+        </h1>
 
         <form action="{{ url('librarylogout') }}">
             <h5> <button type="submit" class="btn btn-danger text-white">Logout</button></h5>
@@ -42,7 +45,28 @@
                 {{-- <h2 class="text-center mb-4">Faculties</h2> --}}
                 <ul class="list-group list-group-flush ">
 
+                    <button type="" class="button" data-toggle="collapse" data-target="#demo">
+                        <li class="list-group-item"> 📚📖
+                            Manage Books Section
+                        </li>
+                    </button>
+                    <div id="demo" class="collapse">
 
+
+
+                        {{-- <li class="list-group-item">Upload Book</li> --}}
+                        <a href="{{ route('booksoperation') }}" target="_blank" rel="noopener noreferrer">
+                            <li class="list-group-item">📚 Edit Book Information </li>
+                        </a>
+                        <li class="list-group-item">
+                            <a href="{{ route('Book') }}" target="_blank" rel="noopener noreferrer"
+                                class="list-group-item border">
+                                <div> 📚 Upload a Book</div>
+                            </a>
+
+                        </li>
+                        <li class="list-group-item">Due Fee</li>
+                    </div>
 
                     {{-- Staff Management --}}
 
@@ -52,13 +76,13 @@
                     <a href="{{ route('FeedbackPage') }}" target="_blank" rel="noopener noreferrer">
                         <li class="list-group-item">👍 Member`s Feedback</li>
                     </a>
-                    <a href="{{ route('Book') }}" target="_blank" rel="noopener noreferrer"
+                    {{-- <a href="{{ route('Book') }}" target="_blank" rel="noopener noreferrer"
                         class="list-group-item border">
                         <div> 📚 Upload a Book</div>
-                    </a>
-                    <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">
+                    </a> --}}
+                    {{-- <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">
                         <div> 📚 Remove a Book</div>
-                    </a>
+                    </a> --}}
                     <a href="http://" target="_blank" rel="noopener noreferrer" class="list-group-item border">
                         <div> 📚📖 Check all books</div>
                     </a>
